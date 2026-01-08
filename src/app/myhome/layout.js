@@ -2,6 +2,9 @@ import Header from "../../components/myhome/Header";
 import Footer from "../../components/myhome/Footer";
 import MySidebar from "../../components/myhome/MySidebar";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default function MyHomeLayout({ children }) {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">

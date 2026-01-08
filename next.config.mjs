@@ -8,7 +8,6 @@ const nextConfig = {
       allowedOrigins: ["*"]
     }
   },
-
   
   output: "standalone",
 };

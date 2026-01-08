@@ -721,17 +721,20 @@ export default function LeadFullViewPage() {
                               Enrolled
                             </span>
                           ) : (
-                            <Link
-                              href={`/myhome/enrollments/enrollment-form?leadId=${lead.leadId}
-                              &leadCourseId=${c.id}
-                              &name=${encodeURIComponent(lead.fullName || "")}
-                              &email=${encodeURIComponent(lead.email || "")}
-                              &phone=${encodeURIComponent(lead.phone || "")}
-                              &course=${encodeURIComponent(c.courseInterested || "")}`}
-                              className="inline-block bg-blue-600 text-white px-3 py-1.5 text-xs rounded-lg font-semibold shadow hover:bg-blue-700 transition"
-                            >
-                              Proceed For Enrollment →
-                            </Link>
+                          <Link
+                            href={`/myhome/enrollments/enrollment-form?${new URLSearchParams({
+                              leadId: String(lead.leadId).trim(),
+                              leadCourseId: String(c.id).trim(),
+                              name: lead.fullName?.trim() || "",
+                              email: lead.email?.trim() || "",
+                              phone: lead.phone?.trim() || "",
+                              course: c.courseInterested?.trim() || "",
+                            }).toString()}`}
+                            className="inline-block bg-blue-600 text-white px-3 py-1.5 text-xs rounded-lg font-semibold shadow hover:bg-blue-700 transition"
+                          >
+                            Proceed For Enrollment →
+                          </Link>
+
                           )}
                         </div>
                       );

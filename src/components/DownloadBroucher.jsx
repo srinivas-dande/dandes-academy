@@ -7,8 +7,8 @@ const downloadBrochure = () => {
 
   
   const link = document.createElement('a');
-  link.href = '/brochures/JDBC Study Guide - Final.pdf';
-  link.download = 'AI-ML-Course-Brochure.pdf';
+  link.href = '/brochures/AI-ML - Course Brochure- v2.0.pdf';
+  link.download = 'AI-ML - Course Brochure- v2.0.pdf';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

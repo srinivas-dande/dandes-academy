@@ -5,7 +5,7 @@ import Instructor from '../components/Instructor';
 import Testimonials from '../components/Testimonials';
 import LearningJourney from '../components/LearningJourney';
 import UpcomingBatches from '../components/UpcomingBatches';
-import LeadCapture from '../components/LeadCapture';
+import LeadCapture from '../components/DownloadBroucher';
 import FAQs from '../components/FAQs';
 import Footer from '../components/Footer';
 import DetailedSyllabus from '@/components/DetailedSyllabus';
@@ -40,7 +40,6 @@ export default function Home() {
       <LearningJourney />
       <ToolsTechnologies />
       <DetailedSyllabus />
-       <UpcomingBatches />
       <Instructor />
       <Testimonials />
       <LeadCapture />

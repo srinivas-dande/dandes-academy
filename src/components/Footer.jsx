@@ -62,7 +62,7 @@ export default function Footer() {
         rel="noopener noreferrer"
         className="hover:text-white focus:text-white focus:outline-none"
       >
-        Free Demo Videos
+        Free Class Videos
       </Link>
     </li>
 

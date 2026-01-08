@@ -1,6 +1,6 @@
 
 import Header from '../../components/Header';
-import DemoVideos from '../../components/DemoVideos';
+import ClassVideos from '../../components/ClassVideos';
 import Footer from '../../components/Footer';
 
 export const metadata = {
@@ -9,12 +9,11 @@ export const metadata = {
   alternates: { canonical: "/free-class-videos" },
 };
 
-
 export default function FreeClassVideos() {
   return (
     <main className="min-h-screen bg-white">
       <Header />
-      <DemoVideos />
+      <ClassVideos />
       <Footer />
     </main>
   );

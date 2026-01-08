@@ -6,7 +6,7 @@ import fs from 'fs';
 export async function GET() {
   const filePath = path.join(
     process.cwd(),
-    'public/brochures/JDBC Study Guide - Final.pdf'
+    'public/brochures/AI-ML - Course Brochure- v2.0.pdf'
   );
 
   const fileBuffer = fs.readFileSync(filePath);
@@ -15,7 +15,7 @@ export async function GET() {
     headers: {
       'Content-Type': 'application/pdf',
       // 👇 inline opens in browser tab
-      'Content-Disposition': 'inline; filename="AI-ML-Course-Brochure.pdf"',
+      'Content-Disposition': 'inline; filename="AI-ML - Course Brochure- v2.0.pdf"',
     },
   });
 }

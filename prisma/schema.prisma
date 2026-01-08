@@ -1,0 +1,259 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Daleads {
+  leadId     Int             @id @default(autoincrement())
+  fullName   String
+  email      String          @unique(map: "daleads_email_unique")
+  phone      String?         @unique(map: "daleads_phone_unique")
+  leadSource String?         @default("web_site")
+  adSource   String?
+  createdAt  DateTime?       @default(now())
+  leadStatus String?         @default("New")
+  leadOwner  String?         @db.VarChar(255)
+  activities LeadActivity[]
+  emails     LeadEmail[]
+  tags       LeadTag[]
+  courses    DaleadsCourse[]
+  dastudents dastudents[]
+
+  @@map("daleads")
+}
+
+model DaleadsCourse {
+  id               Int      @id @default(autoincrement())
+  leadId           Int
+  courseInterested String?  @db.VarChar(255)
+  enrollmentStatus String?  @default("Not Enrolled") @db.VarChar(100)
+  remarks          String?  @map("Remarks") @db.VarChar(255)
+  updatedAt        DateTime @default(now()) @updatedAt @db.Timestamp(6)
+  lead             Daleads  @relation(fields: [leadId], references: [leadId], onDelete: Cascade, onUpdate: NoAction, map: "fk_daleads_course")
+
+  @@map("daleads_Course")
+}
+
+model Batches {
+  id             Int       @id @default(autoincrement())
+  courseName     String    @db.VarChar(150)
+  batchId        String    @unique @db.VarChar(50)
+  startDate      DateTime  @db.Date
+  endDate        DateTime  @db.Date
+  completionDate DateTime? @db.Date
+  weekType       String?   @db.VarChar(30)
+  timings        String?   @db.VarChar(50)
+  noOfStudents   Int?      @default(0)
+  status         String?   @default("Active") @db.VarChar(20)
+}
+
+model LeadTag {
+  id          Int      @id @default(autoincrement())
+  tag         String
+  leadId      Int
+  createdById Int?
+  createdAt   DateTime @default(now())
+  lead        Daleads  @relation(fields: [leadId], references: [leadId])
+}
+
+model LeadActivity {
+  id             Int        @id @default(autoincrement())
+  leadId         Int
+  activityType   String
+  title          String
+  description    String?
+  meta           Json?
+  leadOwner      String?    @db.VarChar(255)
+  createdAt      DateTime   @default(now())
+  nextFollowupAt DateTime?  @db.Timestamp(6)
+  lead           Daleads    @relation(fields: [leadId], references: [leadId])
+  email          LeadEmail?
+
+  @@map("LeadActivity")
+}
+
+model LeadEmail {
+  id           Int           @id @default(autoincrement())
+  leadId       Int
+  activityId   Int?          @unique
+  toEmail      String
+  fromEmail    String
+  subject      String
+  bodyHtml     String
+  status       String        @default("sent")
+  errorMessage String?
+  sentAt       DateTime      @default(now())
+  fileName     String?
+  fileUrl      String?
+  activity     LeadActivity? @relation(fields: [activityId], references: [id])
+  lead         Daleads       @relation(fields: [leadId], references: [leadId])
+}
+
+model DefaultSyllabus {
+  id        Int      @id @default(1)
+  fileName  String
+  updatedAt DateTime @updatedAt
+  fileUrl   String?
+  mimeType  String?
+  fileSize  Int?
+}
+
+model DaWebinars {
+  webinarId   Int       @id(map: "dawebinars_pkey") @default(autoincrement())
+  title       String    @db.VarChar(255)
+  dateTime    DateTime  @db.Timestamp(6)
+  description String?
+  createdAt   DateTime? @default(now()) @db.Timestamp(6)
+  status      String?   @default("Running") @db.VarChar(50)
+
+  @@map("DaWebinars")
+}
+
+model dastudents {
+  leadId           Int?
+  fullName         String
+  email            String?
+  phone            String?
+  status           String              @default("active")
+  createdAt        DateTime?           @default(now()) @db.Timestamp(6)
+  updatedAt        DateTime?           @default(now()) @updatedAt @db.Timestamp(6)
+  leadOwner        String?             @map("leadowner") @db.VarChar(255)
+  enrollmentNumber String              @id @db.VarChar(50)
+  courses          daStudents_Course[]
+  daleads          Daleads?            @relation(fields: [leadId], references: [leadId])
+
+  @@map("dastudents")
+}
+
+model daStudents_Course {
+  id               Int               @id @default(autoincrement())
+  enrollmentNumber String            @db.VarChar(255)
+  courseJoined     String?
+  totalFee         Decimal?          @db.Decimal(12, 2)
+  feePaid          Decimal?          @default(0) @db.Decimal(12, 2)
+  feeBalance       Decimal?          @db.Decimal(12, 2)
+  installments     Int?
+  studentId        String?           @unique(map: "dastudents_course_studentid_unique") @db.VarChar(50)
+  feeInstallments  FeeInstallments[]
+  feePayments      FeePayments[]
+  student          dastudents        @relation(fields: [enrollmentNumber], references: [enrollmentNumber], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("daStudents_Course")
+}
+
+model FeeInstallments {
+  id               Int                @id(map: "feeinstallments_pkey") @default(autoincrement())
+  installmentNo    Int
+  amount           Decimal            @db.Decimal(12, 2)
+  dueDate          DateTime           @db.Timestamp(6)
+  status           String             @default("Due")
+  enrollmentNumber String?            @db.VarChar(50)
+  courseId         Int?
+  course           daStudents_Course? @relation(fields: [courseId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("FeeInstallments")
+}
+
+model FeePayments {
+  id               Int                @id(map: "feepayments_pkey") @default(autoincrement())
+  installmentNo    Int
+  amountPaid       Decimal            @db.Decimal(12, 2)
+  paidDate         DateTime?          @default(now()) @db.Timestamp(6)
+  paymentMode      String
+  enrollmentNumber String?            @db.VarChar(50)
+  courseId         Int?
+  course           daStudents_Course? @relation(fields: [courseId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("FeePayments")
+}
+
+model Employees {
+  empId         Int       @id(map: "employees_pkey") @default(autoincrement()) @map("empid")
+  fullName      String    @map("fullname") @db.VarChar(100)
+  email         String    @unique(map: "employees_email_key") @map("email") @db.VarChar(120)
+  phone         String?   @map("phone") @db.VarChar(20)
+  designation   String?   @map("designation") @db.VarChar(100)
+  dateOfJoining DateTime? @map("dateofjoining") @db.Date
+  dateOfExit    DateTime? @map("dateofexit") @db.Date
+  status        String?   @default("working") @map("status") @db.VarChar(20)
+  isactive      Boolean?  @default(true)
+  createdat     DateTime? @default(now()) @db.Timestamp(6)
+  updatedat     DateTime? @default(now()) @db.Timestamp(6)
+
+  @@map("Employees")
+}
+
+model UserLoginDetails {
+  username   String    @id(map: "userlogindetails_pkey") @db.VarChar(120)
+  password   String    @db.VarChar(255)
+  role       String    @db.VarChar(20)
+  lastlogin  DateTime? @db.Timestamp(6)
+  logincount Int?      @default(0)
+  status     String?   @default("active") @db.VarChar(20)
+
+  @@map("UserLoginDetails")
+}
+
+model RoundRobinCounter {
+  id        Int      @id(map: "roundRobinCounter_pkey")
+  index     Int      @default(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(6)
+}
+
+model LeadsByOwner {
+  id    Int    @id(map: "leadbyowner_pkey") @default(autoincrement())
+  name  String @db.VarChar(150)
+  count Int?   @default(0)
+
+  @@map("LeadsByOwner")
+}
+
+model LeadsByAdSource {
+  id    Int    @id(map: "leadbyadsource_pkey") @default(autoincrement())
+  name  String @db.VarChar(255)
+  count Int?   @default(0)
+
+  @@map("LeadsByAdSource")
+}
+
+model LeadsByCourse {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(150)
+  count Int?   @default(0)
+}
+
+model LeadsBySource {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(150)
+  count Int?   @default(0)
+}
+
+model EnrollmentsByOwner {
+  id    Int    @id(map: "enrollmentbyowner_pkey") @default(autoincrement())
+  name  String @db.VarChar(150)
+  count Int?   @default(0)
+
+  @@map("EnrollmentsByOwner")
+}
+
+model EnrollmentsByAdSource {
+  id    Int    @id @default(autoincrement())
+  name  String @unique @db.VarChar(150)
+  count Int?   @default(0)
+}
+
+model EnrollmentsByCourse {
+  id    Int    @id @default(autoincrement())
+  name  String @unique @db.VarChar(150)
+  count Int?   @default(0)
+}
+
+model EnrollmentsBySource {
+  id    Int    @id @default(autoincrement())
+  name  String @unique @db.VarChar(150)
+  count Int?   @default(0)
+}

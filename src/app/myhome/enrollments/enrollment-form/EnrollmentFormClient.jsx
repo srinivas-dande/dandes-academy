@@ -113,7 +113,7 @@ const leadCourseId = Number(String(searchParams?.leadCourseId ?? "").trim());
       }
 
       const lead = body.data;
-
+      print(lead)
       setForm((p) => ({
         ...p,
         id: String(lead.lead_Id ?? ""),

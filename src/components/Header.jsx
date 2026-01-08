@@ -39,7 +39,7 @@ export default function Header() {
             </a>
 
             <a
-              href="https://lms.myjavalearningcenter.com/"
+              href="https://lms.dandesacademy.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-lg bg-[#AD1612] px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-[#92100E] transition"

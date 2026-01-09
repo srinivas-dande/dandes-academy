@@ -145,8 +145,8 @@ export default function Hero() {
               Free AI & Machine Learning Webinar
             </h2>
   <p className="text-sm text-gray-700 mb-4">
-      Free AI/ML webinar for Professionals and Job Seekers to learn real-world use cases,
-      career roadmap, and how to start AI & Machine Learning with industry-focused training.
+      Free AI/ML webinar for Professionals and Job Seekers to learn career roadmap, 
+      and how to start AI & Machine Learning with industry-focused training.
     </p>
               <p className="text-sm text-gray-600 mb-6">
                 Join the live session on{" "}

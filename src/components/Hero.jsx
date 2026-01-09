@@ -141,16 +141,20 @@ export default function Hero() {
           {/* RIGHT FORM */}
           <div id="lead-form" className="lg:col-span-6">
             <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-10">
-              <h3 className="text-xl font-bold text-gray-900 mb-1">
-                Register for Free Webinar
-              </h3>
+            <h2 id="free-ai-ml-webinar" className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+              Free AI & Machine Learning Webinar
+            </h2>
+  <p className="text-sm text-gray-700 mb-4">
+      Free AI/ML webinar for Professionals and Job Seekers to learn real-world use cases,
+      career roadmap, and how to start AI & Machine Learning with industry-focused training.
+    </p>
               <p className="text-sm text-gray-600 mb-6">
                 Join the live session on{" "}
                 <span className="text-gray-900 font-semibold">
                   {webinar?.dateTime ? formatDateTime(webinar.dateTime) : "upcoming date"}.
                 </span>
               </p>
-              <LeadForm submitLabel="Register for Free Webinar" />
+              <LeadForm submitLabel="Register for Free AI/ML Webinar" />
             </div>
           </div>
         </div>

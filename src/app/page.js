@@ -4,7 +4,6 @@ import WhyDandesAcademy from '../components/WhyDandesAcademy';
 import Instructor from '../components/Instructor';
 import Testimonials from '../components/Testimonials';
 import LearningJourney from '../components/LearningJourney';
-import UpcomingBatches from '../components/UpcomingBatches';
 import LeadCapture from '../components/DownloadBroucher';
 import FAQs from '../components/FAQs';
 import Footer from '../components/Footer';

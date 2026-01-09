@@ -6,12 +6,14 @@ import Script from "next/script";
 // src/app/layout.jsx
 export const metadata = {
   metadataBase: new URL("https://dandesacademy.com"),
+
   title: {
-    default: "Dandes Academy | AI/ML Training | Srinivas Dande",
-    template: "%s | Dandes Academy",
-  },
+  default: "AI & Machine Learning Course by Srinivas Dande | Industry-Focused Training | Dandes Academy",
+  template: "%s | Dandes Academy",
+},
+
   description:
-    "Industry-focused AI/ML training with hands-on projects, deployment (MLOps), and interview preparation.",
+    "Learn AI & Machine Learning with industry-focused training, hands-on projects, MLOps, and Interview Preparation at Dandes Academy.",
   applicationName: "Dandes Academy",
   keywords: [
     "AI ML course",

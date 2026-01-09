@@ -87,7 +87,7 @@ export default function Testimonials() {
         {/* Heading */}
         <div className="text-center mb-10">
           <h2 className="text-3xl font-extrabold text-gray-900">
-            Here’s what <span className="text-[#AD1612]">they said</span>
+            Here’s what <span className="text-[#AD1612]">My Students said</span>
           </h2>
           <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
             Real success stories from learners who upskilled with Dandes Academy.

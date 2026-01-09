@@ -55,7 +55,7 @@ export default function Footer() {
       </Link>
     </li>
 
-    {/* Open Privacy in new page */}
+    {/* Free Class Videos */}
     <li>
       <Link
         href="/free-class-videos"
@@ -63,6 +63,17 @@ export default function Footer() {
         className="hover:text-white focus:text-white focus:outline-none"
       >
         Free Class Videos
+      </Link>
+    </li>
+
+   {/* Testimonials */}
+    <li>
+      <Link
+        href="/testimonials"
+        rel="noopener noreferrer"
+        className="hover:text-white focus:text-white focus:outline-none"
+      >
+        Testimonials
       </Link>
     </li>
 

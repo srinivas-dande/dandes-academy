@@ -74,9 +74,20 @@ export default function LeadForm({ submitLabel = 'Register Now' }) {
       }
 
       // ✅ SUCCESS (new lead only)
-      if (!isDuplicateLead) {
-        setSuccess(true);
-      }
+  if (!isDuplicateLead) {
+    setSuccess(true);
+
+    // 🔥 GA4 REAL LEAD EVENT
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "lead_form_submit", {
+        event_category: "conversion",
+        event_label: "Webinar Registration",
+        lead_source: form.lead_source,
+        lead_ad_source: form.lead_ad_source,
+      });
+    }
+  }
+
 
       // ✅ DUPLICATE → show backend message
       if (isDuplicateLead) {

@@ -87,6 +87,8 @@ export default function RootLayout({ children }) {
         gtag('config', 'G-XVJ1MY6LEQ');
       `}
     </Script>
+   
+
 </head>
 
 

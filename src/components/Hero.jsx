@@ -150,7 +150,7 @@ export default function Hero() {
                   {webinar?.dateTime ? formatDateTime(webinar.dateTime) : "upcoming date"}.
                 </span>
               </p>
-              <LeadForm submitLabel="Register Now" />
+              <LeadForm submitLabel="Register for Free Webinar" />
             </div>
           </div>
         </div>

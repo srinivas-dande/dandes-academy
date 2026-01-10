@@ -14,12 +14,13 @@ export default function EnrollmentFormClient() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const urlLeadId = String(searchParams?.leadId ?? "").trim();
-  const urlName = String(searchParams?.name ?? "").trim();
-  const urlEmail = String(searchParams?.email ?? "").trim();
-  const urlPhone = String(searchParams?.phone ?? "").trim();
-  const urlCourse = String(searchParams?.course ?? "").trim();
-  const leadCourseId = Number(String(searchParams?.leadCourseId ?? "").trim());
+  const urlLeadId = searchParams.get("leadId")?.trim() ?? "";
+  const urlName = searchParams.get("name")?.trim() ?? "";
+  const urlEmail = searchParams.get("email")?.trim() ?? "";
+  const urlPhone = searchParams.get("phone")?.trim() ?? "";
+  const urlCourse = searchParams.get("course")?.trim() ?? "";
+  const leadCourseId = Number(searchParams.get("leadCourseId") ?? "");
+
 
   const [leadId, setLeadId] = useState(urlLeadId || "");
   const [loadingLead, setLoadingLead] = useState(false);

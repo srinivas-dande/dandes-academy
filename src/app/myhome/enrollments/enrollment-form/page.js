@@ -3,6 +3,6 @@ export const revalidate = 0;
 
 import EnrollmentFormClient from "./EnrollmentFormClient";
 
-export default function Page({ searchParams }) {
-  return <EnrollmentFormClient searchParams={searchParams} />;
+export default function Page() {
+  return <EnrollmentFormClient />;
 }

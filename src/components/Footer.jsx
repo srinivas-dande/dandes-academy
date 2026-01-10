@@ -73,7 +73,7 @@ export default function Footer() {
         rel="noopener noreferrer"
         className="hover:text-white focus:text-white focus:outline-none"
       >
-        Testimonials
+        Testimonials Full
       </Link>
     </li>
 

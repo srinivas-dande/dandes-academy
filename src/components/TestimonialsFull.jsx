@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 
-export default function TestimonialsFullPage() {
+export default function TestimonialsFull() {
   const testimonials = [
     {
       id: 1,

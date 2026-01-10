@@ -15,8 +15,8 @@ function getSubmittedDate() {
    Helper: get sales team emails safely
 -------------------------------------------------- */
 function getSalesEmails(leadOwner) {
-  if(leadOwner=="Krishna Chaitanya")
-    return "chaitanya@tatpara.com"
+  if(leadOwner=="Krishan Chaitanya")
+    return "chaitu.nepal@gmail.com"
   else if(leadOwner=="Swetha Ramana")
     return "swetha@tatpara.com"
   else

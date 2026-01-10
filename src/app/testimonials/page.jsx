@@ -1,19 +1,19 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Testimonials from '../../components/Testimonials';
+import TestimonialsFull from '../../components/TestimonialsFull';
 
 export const metadata = {
-  title: "Testimonoals",
+  title: "TestimonoalsFull",
   description: "Testimonoals from Students.",
-  alternates: { canonical: "/testimonials" },
+  alternates: { canonical: "/testimonialsfull" },
 };
 
 
-export default function TestimonialsPage() {
+export default function TestimonialsFullPage() {
   return (
     <main className="min-h-screen bg-white">
       <Header />
-     <Testimonials />
+     <TestimonialsFull />
       <Footer />
     </main>
   );

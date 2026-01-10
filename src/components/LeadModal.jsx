@@ -50,7 +50,7 @@ export default function LeadCapture() {
 
     setLoading(true);
     try {
-      const res = await fetch('/da-api/leads', {
+      const res = await fetch('/da-api/lead-capture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

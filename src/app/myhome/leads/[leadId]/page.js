@@ -432,6 +432,59 @@ export default function LeadFullViewPage() {
     }
   }
 
+    function normalizeIndianPhone(phone) {
+      if (!phone) return null;
+
+      
+      let cleaned = phone.replace(/\D/g, "");
+
+      
+      if (cleaned.startsWith("91") && cleaned.length > 10) {
+        cleaned = cleaned.slice(-10);
+      }
+
+      
+      if (cleaned.length !== 10) return null;
+
+      return "91" + cleaned;
+    }
+
+
+  async function handleSendWhatsApp() {
+    if (!lead) return;
+
+    const phone = normalizeIndianPhone(lead.phone);
+
+    if (!phone) {
+      alert("Invalid phone number for WhatsApp");
+      return;
+    }
+
+    const message = `Hi ${lead.fullName}, this is from Dandes Academy...`;
+    const encodedMessage = encodeURIComponent(message);
+
+
+    const waUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+
+    window.open(waUrl, "_blank");
+
+    
+    try {
+      const res = await fetch(`/emp-api/leads/${numericLeadId}/whatsapp`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const json = await res.json();
+      if (json.ok && json.data) {
+        appendActivityLocally(json.data);
+      }
+    } catch (err) {
+      console.error("WhatsApp log error:", err);
+    }
+  }
+
+  /* 
   async function handleSendWhatsApp() {
     if (!lead) return;
 
@@ -471,6 +524,8 @@ export default function LeadFullViewPage() {
       console.error("WhatsApp log error:", err);
     }
   }
+  */
+
 
 
   // -------------------------

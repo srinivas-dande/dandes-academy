@@ -3,9 +3,9 @@ import Footer from '../../components/Footer';
 import TestimonialsFull from '../../components/TestimonialsFull';
 
 export const metadata = {
-  title: "Testimonials",
+  title: "Testimonials Full",
   description: "Testimonials from students of Dandes Academy.",
-  alternates: { canonical: "/testimonials" },
+  alternates: { canonical: "/testimonials-full" },
 };
 
 export default function TestimonialsPage() {

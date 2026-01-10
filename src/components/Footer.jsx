@@ -69,7 +69,7 @@ export default function Footer() {
    {/* Testimonials */}
     <li>
       <Link
-        href="/testimonials"
+        href="/testimonials-full"
         rel="noopener noreferrer"
         className="hover:text-white focus:text-white focus:outline-none"
       >

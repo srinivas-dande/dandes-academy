@@ -93,7 +93,7 @@ export async function handleAddLeadCapture(payload = {}) {
     finalSource = lead_source || "Website";
 
     let leadOwner = "Website";
-    if (finalSource === "Website") {
+    if (!lead_source || finalSource === "Website") {
       leadOwner = await assignRoundRobinManager();
     }
 

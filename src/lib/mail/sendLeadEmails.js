@@ -31,7 +31,8 @@ function getSalesEmails(leadOwner) {
    Lead Submitted by Student
 ================================================= */
 
-console.log("📨 sendLeadEmails triggered for:", email);
+console.log("📨 sendLeadEmails triggered");
+
 
 export async function sendLeadEmails({
   fullName,

@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Card from "@/components/enrollment/Card";
@@ -11,16 +11,16 @@ function addMonths(date, months) {
   return d;
 }
 
-export default function EnrollmentFormClient({ searchParams }) {
-
+export default function EnrollmentFormClient() {
+  const searchParams = useSearchParams();
   const router = useRouter();
 
-const urlLeadId = String(searchParams?.leadId ?? "").trim();
-const urlName = String(searchParams?.name ?? "").trim();
-const urlEmail = String(searchParams?.email ?? "").trim();
-const urlPhone = String(searchParams?.phone ?? "").trim();
-const urlCourse = String(searchParams?.course ?? "").trim();
-const leadCourseId = Number(String(searchParams?.leadCourseId ?? "").trim());
+  const urlLeadId = String(searchParams?.leadId ?? "").trim();
+  const urlName = String(searchParams?.name ?? "").trim();
+  const urlEmail = String(searchParams?.email ?? "").trim();
+  const urlPhone = String(searchParams?.phone ?? "").trim();
+  const urlCourse = String(searchParams?.course ?? "").trim();
+  const leadCourseId = Number(String(searchParams?.leadCourseId ?? "").trim());
 
   const [leadId, setLeadId] = useState(urlLeadId || "");
   const [loadingLead, setLoadingLead] = useState(false);

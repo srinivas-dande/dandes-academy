@@ -61,7 +61,8 @@ export default function EnrollmentFormClient() {
 
       setLeadId(urlLeadId);
     }
-  }, []);
+  }, [urlLeadId]);
+
 
   useEffect(() => {
   if (!form.course) {

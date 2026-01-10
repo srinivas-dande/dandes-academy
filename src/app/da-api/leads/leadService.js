@@ -123,14 +123,15 @@ export async function handleAddLead(payload = {}) {
     await updateLeadBySource(finalSource);
     await updateLeadByCourse(finalCourse);
 
-    sendLeadEmails({
+    await sendLeadEmails({
       fullName: formattedName,
       email: String(email).trim(),
       phone: phone ? String(phone).trim() : null,
       course: finalCourse,
       source: finalSource,
-      leadOwner:leadOwner
-    }).catch(() => {});
+      leadOwner: leadOwner,
+    });
+
 
     return { ok: true, id: newLead.leadId };
   } catch (err) {

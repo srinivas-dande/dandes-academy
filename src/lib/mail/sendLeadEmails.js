@@ -24,10 +24,15 @@ function getSalesEmails(leadOwner) {
   
 }
 
+
+
 /* =================================================
    TEMPLATE 1 & 2
    Lead Submitted by Student
 ================================================= */
+
+console.log("📨 sendLeadEmails triggered for:", email);
+
 export async function sendLeadEmails({
   fullName,
   email,

@@ -85,6 +85,15 @@ export default function Testimonials() {
       company: '/images/companies/Wipro.png',
       linkedin: '',
     },
+    {
+      id: 9,
+      name: 'Manish Ranjan',
+      role: 'Senior Engineer, American Express India',
+      feedback: '“You deliver outstanding training in Java, Spring, MicroServices , DevOps, and AI/ML with a perfect balance of strong fundamentals, real-world examples, and hands-on projects. You explain complex concepts in a clear, simple, and practical manner, making the sessions engaging and easy to understand for both beginners and experienced learners. The training is highly industry-oriented, focusing on best practices, interview preparation, and real-time applications, which significantly improves confidence and job readiness. You are  making the program highly recommended for anyone aiming to build a successful career in Java or AI/ML.”',
+      image: '/images/students/Manish.jpg',
+      company: '/images/companies/Americanexpress.png',
+      linkedin: '',
+    },
   ];
 
   const scrollingTestimonials = [...testimonials, ...testimonials];

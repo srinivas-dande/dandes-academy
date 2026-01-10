@@ -69,11 +69,11 @@ export default function Footer() {
    {/* Testimonials */}
     <li>
       <Link
-        href="/testimonials-full"
+        href="/testimonials"
         rel="noopener noreferrer"
         className="hover:text-white focus:text-white focus:outline-none"
       >
-        Testimonials Full
+        Testimonials
       </Link>
     </li>
 

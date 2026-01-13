@@ -76,7 +76,6 @@ export async function handleAddLeadCapture(payload = {}) {
         email: String(email).trim(),
         phone: phone ? String(phone).trim() : null,
         leadSource: finalSource,
-        leadOwner,
         adSource: finalAdSource,
         leadStatus: "New",
         courses: {
@@ -87,6 +86,13 @@ export async function handleAddLeadCapture(payload = {}) {
         },
       },
     });
+
+// 🔥 FORCE OWNER AFTER INSERT (overrides DB default / trigger)
+await prisma.daleads.update({
+  where: { leadId: newLead.leadId },
+  data: { leadOwner },
+});
+
 
     await updateLeadByOwner(leadOwner);
     await updateLeadByAdSource(finalAdSource);

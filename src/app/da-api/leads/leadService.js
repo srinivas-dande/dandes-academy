@@ -35,7 +35,7 @@ function toTitleCase(str = "") {
 -----------------------------------------------------------*/
 async function assignRoundRobinManager() {
   try {
-    const managers = await prisma.employees.findMany({
+    const managers = await prisma.Employees.findMany({
       where: { designation: "Manager", isactive: true },
       select: { fullName: true },
     });

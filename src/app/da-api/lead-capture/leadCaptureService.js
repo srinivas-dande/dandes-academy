@@ -36,11 +36,15 @@ function toTitleCase(str = "") {
 async function assignRoundRobinManager() {
   try {
     const managers = await prisma.employees.findMany({
-      where: { designation: "Manager", isactive: true },
+      where: {
+        designation: "Manager",
+        isactive: true,
+      },
       select: { fullName: true },
     });
 
-    if (!managers.length) return "Website";
+    // SAME fallback behavior as (1)
+    if (!managers.length) return "Srinivas";
 
     let counter = await prisma.roundRobinCounter.findUnique({
       where: { id: 1 },
@@ -52,7 +56,8 @@ async function assignRoundRobinManager() {
       });
     }
 
-    const selected = managers[counter.index % managers.length].fullName;
+    const selected =
+      managers[counter.index % managers.length].fullName;
 
     await prisma.roundRobinCounter.update({
       where: { id: 1 },
@@ -60,7 +65,7 @@ async function assignRoundRobinManager() {
     });
 
     return selected;
-  } catch (e) {
+  } catch {
     console.error("Round robin error:", e);
     return "Website";
   }
@@ -82,7 +87,7 @@ export async function handleAddLeadCapture(payload = {}) {
       lead_source,
       lead_ad_source,
       Remarks,
-    } = payload || {};
+    } = payload;
 
     if (!full_Name || !email) {
       return { ok: false, error: "Missing required fields." };
@@ -92,8 +97,11 @@ export async function handleAddLeadCapture(payload = {}) {
     finalCourse = course_Interested || course || "AI/ML Course";
     finalSource = lead_source || "Website";
 
-    let leadOwner = "Website";
-    if (!lead_source || finalSource === "Website") {
+    // SAME default owner as (1)
+    let leadOwner = "Srinivas";
+
+    // SAME round-robin trigger as (1)
+    if (finalSource === "Website") {
       leadOwner = await assignRoundRobinManager();
     }
 
@@ -136,20 +144,19 @@ export async function handleAddLeadCapture(payload = {}) {
     if (err?.code === "P2002") {
       sendLeadResubmittedEmails({
         fullName: formattedName,
-        email: payload?.email ? String(payload.email).trim() : null,
-        phone: payload?.phone ? String(payload.phone).trim() : null,
+        email: payload?.email?.trim(),
+        phone: payload?.phone?.trim(),
         course: finalCourse,
         source: finalSource,
       }).catch(() => {});
 
       return {
         ok: false,
-        error: "Your Details Already exists. Our team will contact You Shortly.",
+        error:
+          "Your Details Already exists. Our team will contact You Shortly.",
         code: "DUPLICATE_LEAD",
       };
     }
-
-    console.error("Add lead capture error:", err);
 
     return { ok: false, error: "Database error." };
   }

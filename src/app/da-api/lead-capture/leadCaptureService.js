@@ -57,15 +57,15 @@ export async function handleAddLeadCapture(payload = {}) {
 
     formattedName = toTitleCase(full_Name);
     finalCourse = course_Interested || course || "AI/ML Course";
-    finalSource = lead_source || "Website";
 
-    // SAME default owner as (1)
+    finalSource = (lead_source || "Website").toString().trim();
+
     let leadOwner = "Srinivas";
 
-    // SAME round-robin trigger as (1)
-    if (finalSource === "Website") {
+    if (finalSource.toLowerCase() === "website") {
       leadOwner = await assignRoundRobinManager();
     }
+
 
     const normalizedSource = (lead_ad_source || "direct").toLowerCase();
     const finalAdSource = adSourceMap[normalizedSource] || "Direct";

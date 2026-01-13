@@ -35,7 +35,7 @@ function toTitleCase(str = "") {
 -----------------------------------------------------------*/
 async function assignRoundRobinManager() {
   try {
-    const managers = await prisma.Employees.findMany({
+    const managers = await prisma.employees.findMany({
       where: {
         designation: "Manager",
         isactive: true,
@@ -65,9 +65,9 @@ async function assignRoundRobinManager() {
     });
 
     return selected;
-  } catch {
+  } catch (e) {
     console.error("Round robin error:", e);
-    return "Website";
+    return "Srinivas";
   }
 }
 

@@ -34,7 +34,7 @@ function toTitleCase(str = "") {
 
 
 /* ----------------------------------------------------------
-   HANDLE ADD LEAD (LEAD CAPTURE)
+   HANDLE ADD LEAD  ✅ (THIS NAME MATTERS)
 -----------------------------------------------------------*/
 export async function handleAddLeadCapture(payload = {}) {
   let formattedName, finalCourse, finalSource;
@@ -59,12 +59,10 @@ export async function handleAddLeadCapture(payload = {}) {
     finalCourse = course_Interested || course || "AI/ML Course";
     finalSource = lead_source || "Website";
 
-
     let leadOwner = "Srinivas";
     if (finalSource === "Website") {
       leadOwner = await assignRoundRobinManager();
     }
-
 
     const normalizedSource = (lead_ad_source || "direct").toLowerCase();
     const finalAdSource = adSourceMap[normalizedSource] || "Direct";
@@ -87,27 +85,28 @@ export async function handleAddLeadCapture(payload = {}) {
       },
     });
 
-
     await updateLeadByOwner(leadOwner);
     await updateLeadByAdSource(finalAdSource);
     await updateLeadBySource(finalSource);
     await updateLeadByCourse(finalCourse);
 
-    sendLeadEmails({
+    await sendLeadEmails({
       fullName: formattedName,
       email: String(email).trim(),
       phone: phone ? String(phone).trim() : null,
       course: finalCourse,
       source: finalSource,
-    }).catch(() => {});
+      leadOwner: leadOwner,
+    });
+
 
     return { ok: true, id: newLead.leadId };
   } catch (err) {
     if (err?.code === "P2002") {
       sendLeadResubmittedEmails({
         fullName: formattedName,
-        email: payload?.email?.trim(),
-        phone: payload?.phone?.trim(),
+        email: payload?.email ? String(payload.email).trim() : null,
+        phone: payload?.phone ? String(payload.phone).trim() : null,
         course: finalCourse,
         source: finalSource,
       }).catch(() => {});
@@ -120,6 +119,7 @@ export async function handleAddLeadCapture(payload = {}) {
       };
     }
 
+    console.error("Add lead error:", err);
     return { ok: false, error: "Database error." };
   }
 }

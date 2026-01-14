@@ -3,21 +3,37 @@ import prisma from "@/lib/prisma";
 export async function assignRoundRobinManager() {
   console.log("🔥 assignRoundRobinManager CALLED");
 
-  const employees = await prisma.employees.findMany();
-  console.log("👥 ALL EMPLOYEES:", employees);
-
   const managers = await prisma.employees.findMany({
     where: {
-      role: "Manager",
+      designation: "Manager",
+      status: "working",
+      isactive: true,
     },
+    orderBy: { empId: "asc" },
   });
 
-  console.log("🎯 MANAGERS FOUND:", managers);
+  console.log("🎯 MANAGERS FOUND:", managers.map(m => m.fullName));
 
+  // Safety fallback
   if (!managers.length) {
-    console.log("⚠️ NO MANAGERS → FALLBACK Srinivas");
-    return "Srinivas";
+    return "Srinivas Dande";
   }
 
-  return managers[0].fullName;
+  let tracker = await prisma.roundRobinTracker.findFirst();
+
+  if (!tracker) {
+    tracker = await prisma.roundRobinTracker.create({
+      data: { lastIndex: 0 },
+    });
+    return managers[0].fullName;
+  }
+
+  const nextIndex = (tracker.lastIndex + 1) % managers.length;
+
+  await prisma.roundRobinTracker.update({
+    where: { id: tracker.id },
+    data: { lastIndex: nextIndex },
+  });
+
+  return managers[nextIndex].fullName;
 }

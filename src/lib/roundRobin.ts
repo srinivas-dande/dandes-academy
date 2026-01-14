@@ -1,38 +1,43 @@
 import prisma from "@/lib/prisma";
 
+
 export async function assignRoundRobinManager() {
-  try {
-    const managers = await prisma.Employees.findMany({
-      where: {
-        designation: "Manager",
-        isactive: true,
-      },
-      select: { fullName: true },
-    });
+  // 1️⃣ Get all ACTIVE managers
+  const managers = await prisma.employees.findMany({
+    where: {
+      role: "Manager",
+      isActive: true,
+      status: "working",
+    },
+    orderBy: { id: "asc" },
+  });
 
-    if (!managers.length) return "Srinivas";
-
-    let counter = await prisma.roundRobinCounter.findUnique({
-      where: { id: 1 },
-    });
-
-    if (!counter) {
-      counter = await prisma.roundRobinCounter.create({
-        data: { id: 1, index: 0 },
-      });
-    }
-
-    const selected =
-      managers[counter.index % managers.length].fullName;
-
-    await prisma.roundRobinCounter.update({
-      where: { id: 1 },
-      data: { index: { increment: 1 } },
-    });
-
-    return selected;
-  } catch (e) {
-    console.error("Round robin error:", e);
-    return "Srinivas";
+  // Fallback (safety)
+  if (!managers.length) {
+    return "Srinivas Dande";
   }
+
+  // 2️⃣ Get last assigned index
+  let tracker = await prisma.roundRobinTracker.findFirst();
+
+  // If tracker not exists → create it
+  if (!tracker) {
+    tracker = await prisma.roundRobinTracker.create({
+      data: { lastIndex: 0 },
+    });
+
+    return managers[0].fullName;
+  }
+
+  // 3️⃣ Calculate next index
+  const nextIndex = (tracker.lastIndex + 1) % managers.length;
+
+  // 4️⃣ Update tracker
+  await prisma.roundRobinTracker.update({
+    where: { id: tracker.id },
+    data: { lastIndex: nextIndex },
+  });
+
+  // 5️⃣ Return next manager
+  return managers[nextIndex].fullName;
 }

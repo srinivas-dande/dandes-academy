@@ -1,6 +1,4 @@
 import prisma from "@/lib/prisma";
-import { assignRoundRobinManager } from "@/lib/roundRobin";
-
 import {
   sendLeadEmails,
   sendLeadResubmittedEmails,
@@ -32,9 +30,41 @@ function toTitleCase(str = "") {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
+async function assignRoundRobinManager() {
+  try {
+    const managers = await prisma.Employees.findMany({
+      where: { designation: "Manager", isactive: true },
+      select: { fullName: true },
+    });
+
+    if (!managers.length) return "Srinivas";
+
+    let counter = await prisma.roundRobinCounter.findUnique({
+      where: { id: 1 },
+    });
+
+    if (!counter) {
+      counter = await prisma.roundRobinCounter.create({
+        data: { id: 1, index: 0 },
+      });
+    }
+
+    const selected = managers[counter.index % managers.length].fullName;
+
+    await prisma.roundRobinCounter.update({
+      where: { id: 1 },
+      data: { index: { increment: 1 } },
+    });
+
+    return selected;
+  } catch (e) {
+    console.error("Round robin error:", e);
+    return "Brochure";
+  }
+}
 
 /* ----------------------------------------------------------
-   HANDLE ADD LEAD  ✅ (THIS NAME MATTERS)
+   HANDLE ADD LEAD (LEAD CAPTURE)
 -----------------------------------------------------------*/
 export async function handleAddLeadCapture(payload = {}) {
   let formattedName, finalCourse, finalSource;
@@ -49,7 +79,7 @@ export async function handleAddLeadCapture(payload = {}) {
       lead_source,
       lead_ad_source,
       Remarks,
-    } = payload || {};
+    } = payload;
 
     if (!full_Name || !email) {
       return { ok: false, error: "Missing required fields." };
@@ -57,10 +87,13 @@ export async function handleAddLeadCapture(payload = {}) {
 
     formattedName = toTitleCase(full_Name);
     finalCourse = course_Interested || course || "AI/ML Course";
-    finalSource = lead_source || "Website";
+    finalSource = lead_source || "Brochure";
 
+    // SAME default owner as (1)
     let leadOwner = "Srinivas";
-    if (finalSource === "Website") {
+
+    // SAME round-robin trigger as (1)
+    if (finalSource === "Brochure") {
       leadOwner = await assignRoundRobinManager();
     }
 
@@ -90,23 +123,21 @@ export async function handleAddLeadCapture(payload = {}) {
     await updateLeadBySource(finalSource);
     await updateLeadByCourse(finalCourse);
 
-    await sendLeadEmails({
+    sendLeadEmails({
       fullName: formattedName,
       email: String(email).trim(),
       phone: phone ? String(phone).trim() : null,
       course: finalCourse,
       source: finalSource,
-      leadOwner: leadOwner,
-    });
-
+    }).catch(() => {});
 
     return { ok: true, id: newLead.leadId };
   } catch (err) {
     if (err?.code === "P2002") {
       sendLeadResubmittedEmails({
         fullName: formattedName,
-        email: payload?.email ? String(payload.email).trim() : null,
-        phone: payload?.phone ? String(payload.phone).trim() : null,
+        email: payload?.email?.trim(),
+        phone: payload?.phone?.trim(),
         course: finalCourse,
         source: finalSource,
       }).catch(() => {});
@@ -119,7 +150,6 @@ export async function handleAddLeadCapture(payload = {}) {
       };
     }
 
-    console.error("Add lead error:", err);
     return { ok: false, error: "Database error." };
   }
 }

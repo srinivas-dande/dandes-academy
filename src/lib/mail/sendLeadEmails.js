@@ -542,7 +542,8 @@ export async function sendLeadConfirmationEmail({ name, email }) {
           <p>
             Regards,<br/>
             <strong>Srinivas Dande</strong><br/>
-            Founder – DandesAcademy
+            Founder & Lead Trainer<br/>
+            DandesAcademy
           </p>
         </div>
       `,

@@ -132,14 +132,27 @@ export default function WebinarBody() {
   return (
     <div className="w-full bg-white">
       {/* IMAGE HERO */}
-      <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden">
-        <img
-          src="/webinars/ai-ml-webinar.png"
-          alt="Webinar Banner"
-          className="h-[360px] w-full object-cover md:h-[420px]"
-          draggable="false"
-        />
-      </section>
+      <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-white">
+  <img
+    src="/webinars/ai-ml-webinar.png"
+    alt="Webinar Banner"
+    className="
+      w-full
+      h-auto
+      max-h-[260px]
+      object-contain
+
+      md:h-[360px]
+      md:max-h-none
+      md:object-cover
+      md:object-right
+    "
+    draggable="false"
+  />
+</section>
+
+
+
 
       {/* MAIN CONTENT + FORM */}
       <section className="py-10">

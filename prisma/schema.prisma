@@ -197,6 +197,27 @@ model UserLoginDetails {
   @@map("UserLoginDetails")
 }
 
+model Webinar_Registrations {
+  sno         Int      @id @default(autoincrement())
+  webinarId   String   @db.VarChar(100)
+  fullName    String   @db.VarChar(150)
+  email       String   @db.VarChar(150)
+  phone       String   @db.VarChar(20)
+  status      String?  @default("registered") @db.VarChar(50)
+  createdDate DateTime @default(now()) @db.Timestamp(6)
+
+  @@map("Webinar_Registrations")
+}
+
+model webinars {
+  webinarId            String   @id @db.VarChar(100)
+  web_Date             DateTime @db.Timestamp(6)
+  no_of_Registractions Int      @default(0)
+  status               String   @default("active") @db.VarChar(50)
+
+  @@map("webinars")
+}
+
 model RoundRobinCounter {
   id        Int      @id(map: "roundRobinCounter_pkey")
   index     Int      @default(0)

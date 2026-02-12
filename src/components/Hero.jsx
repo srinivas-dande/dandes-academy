@@ -38,7 +38,7 @@ export default function Hero() {
     let interval;
 
     function startFallbackTimer() {
-      console.log("🕒 Switching to fallback 24-hour timer...");
+      console.log("Switching to fallback 24-hour timer...");
       let diff = 24 * 60 * 60 * 1000; // 24 hours
       setIsFallback(true);
       setTimeLeft(diff);

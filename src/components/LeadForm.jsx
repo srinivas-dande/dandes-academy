@@ -187,6 +187,7 @@ export default function LeadForm({ submitLabel = 'Register Now' }) {
             placeholder="Enter phone number"
             inputMode="numeric"
             className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white placeholder-gray-400"
+            required
           />
         </div>
       </div>

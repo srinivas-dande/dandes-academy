@@ -498,3 +498,62 @@ export function buildInstallmentPaidMail({
     `,
   };
 }
+
+
+export async function sendLeadConfirmationEmail({ name, email }) {
+  try {
+    await transporter.sendMail({
+      from: '"Dandes Academy" <hello@dandesacademy.com>',
+      to: email,
+      subject: "Webinar Registration Confirmed – See You Live | Dandes Academy",
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+          <h2 style="color:#111;">Hello ${name || "there"},</h2>
+
+          <p>Thank you for registering for our upcoming webinar:</p>
+
+          <h3 style="margin-bottom: 10px; color: #000;">
+            How to Become an AI Engineer or ML Engineer – Roles, Skills & Roadmap
+          </h3>
+
+          <p><strong>📅 Date:</strong> 18th Feb 2026 (Wednesday)</p>
+          <p><strong>⏰ Time:</strong> 8:00 PM IST</p>
+          <p><strong>📍 Mode:</strong> Live Online Session</p>
+
+          <br/>
+
+          <p>You will receive the joining link before the session starts.</p>
+
+          <p>In this webinar, you will gain clarity on:</p>
+
+          <ul style="padding-left: 20px;">
+            <li>The real difference between AI Engineer and ML Engineer roles</li>
+            <li>Skills and tools required in 2026</li>
+            <li>The correct learning roadmap</li>
+            <li>How AI engineering actually works in industry</li>
+          </ul>
+
+          <br/>
+
+          <p>Looking forward to seeing you live!</p>
+
+          <br/>
+
+          <p>
+            Regards,<br/>
+            <strong>Srinivas Dande</strong><br/>
+            Founder – DandesAcademy
+          </p>
+        </div>
+      `,
+    });
+
+    console.log("Lead confirmation email sent");
+  } catch (error) {
+    console.error("Error sending lead confirmation email:", error);
+    throw error; // optional: remove if you don't want to bubble up the error
+  }
+}
+
+
+

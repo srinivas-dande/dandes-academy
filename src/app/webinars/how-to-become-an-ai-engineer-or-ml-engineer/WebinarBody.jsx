@@ -132,24 +132,24 @@ export default function WebinarBody() {
   return (
     <div className="w-full bg-white">
       {/* IMAGE HERO */}
-      <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-white">
+      <section className="w-full bg-white flex justify-center overflow-hidden">
   <img
     src="/webinars/ai-ml-webinar.png"
     alt="Webinar Banner"
     className="
       w-full
       h-auto
-      max-h-[260px]
+      max-h-[220px]        /* Mobile */
+      sm:max-h-[300px]
+      md:max-h-[420px]     /* Tablet */
+      lg:max-h-[500px]     /* Laptop */
       object-contain
-
-      md:h-[360px]
-      md:max-h-none
-      md:object-cover
-      md:object-right
     "
     draggable="false"
   />
 </section>
+
+
 
 
 

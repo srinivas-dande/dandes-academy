@@ -9,76 +9,86 @@ export default function Footer() {
           <div>
             <h4 className="text-xl font-extrabold text-white">Dandes Academy</h4>
          <p className="mt-3 text-sm text-gray-400 leading-relaxed">
-  Industry-focused training in <span className="text-gray-200">AI/ML</span> designed for real-world applications.
-  <br />
-  Build strong foundations, work on hands-on projects,
-    and become industry-ready.
-</p>
+            Industry-focused training in <span className="text-gray-200">AI/ML</span> designed for real-world applications.
+            <br />
+            Build strong foundations, work on hands-on projects,
+              and become industry-ready.
+          </p>
 
           </div>
 
          {/* b) Useful Links */}
-<div>
-  <h5 className="text-sm font-semibold text-white">Useful Links</h5>
-  <ul className="mt-3 space-y-2 text-sm">
+          <div>
+            <h5 className="text-sm font-semibold text-white">Resources</h5>
+            <ul className="mt-3 space-y-2 text-sm">
 
-    {/* Scroll to FAQ section on same page */}
-    <li>
-        <Link
-        href="/faqs"
-        rel="noopener noreferrer"
-        className="hover:text-white focus:text-white focus:outline-none"
-      >
-         Frequently Asked Questions
-      </Link>
-    </li>
+              <li>
+                <Link
+                  href="/webinars/how-to-become-an-ai-engineer-or-ml-engineer"
+                  rel="noopener noreferrer"
+                  className="hover:text-white focus:text-white focus:outline-none"
+                >
+                  UpComing Webinars
+                </Link>
+              </li>
 
-    {/* Open Terms in new page */}
-    <li>
-      <Link
-        href="/terms"
-        rel="noopener noreferrer"
-        className="hover:text-white focus:text-white focus:outline-none"
-      >
-        Terms and Conditions
-      </Link>
-    </li>
 
-    {/* Open Privacy in new page */}
-    <li>
-      <Link
-        href="/privacy"
-        rel="noopener noreferrer"
-        className="hover:text-white focus:text-white focus:outline-none"
-      >
-        Privacy Policy
-      </Link>
-    </li>
+              <li>
+                <Link
+                  href="/faqs"
+                  rel="noopener noreferrer"
+                  className="hover:text-white focus:text-white focus:outline-none"
+                >
+                  Frequently Asked Questions
+                </Link>
+              </li>
 
-    {/* Free Class Videos */}
-    <li>
-      <Link
-        href="/free-class-videos"
-        rel="noopener noreferrer"
-        className="hover:text-white focus:text-white focus:outline-none"
-      >
-        Free Class Videos
-      </Link>
-    </li>
+    
+              <li>
+                <Link
+                  href="/terms"
+                  rel="noopener noreferrer"
+                  className="hover:text-white focus:text-white focus:outline-none"
+                >
+                  Terms and Conditions
+                </Link>
+              </li>
 
-   {/* Testimonials */}
-    <li>
-      <Link
-        href="/testimonials"
-        rel="noopener noreferrer"
-        className="hover:text-white focus:text-white focus:outline-none"
-      >
-        Testimonials
-      </Link>
-    </li>
+    
+              <li>
+                <Link
+                  href="/privacy"
+                  rel="noopener noreferrer"
+                  className="hover:text-white focus:text-white focus:outline-none"
+              >
+                  Privacy Policy
+                </Link>
+              </li>
 
-  </ul>
-</div>
+    
+              <li>
+                <Link
+                  href="/free-class-videos"
+                  rel="noopener noreferrer"
+                  className="hover:text-white focus:text-white focus:outline-none"
+                >
+                  Free Class Videos
+                </Link>
+              </li>
+
+   
+              <li>
+                <Link
+                  href="/testimonials"
+                  rel="noopener noreferrer"
+                  className="hover:text-white focus:text-white focus:outline-none"
+                >
+                  Testimonials
+                </Link>
+              </li>
+
+            </ul>
+          </div>
 
 
         {/* c) Social Media */}

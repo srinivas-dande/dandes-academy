@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import Link from "next/link";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -29,6 +30,15 @@ export default function Header() {
 
           {/* Buttons (RIGHT) */}
           <div className="ml-auto flex items-center gap-3">
+
+            <Link
+              href="/webinars/how-to-become-an-ai-engineer-or-ml-engineer"
+              target="_blank"
+              className="inline-flex items-center rounded-lg bg-[#AD1612] px-5 py-2.5 text-sm font-semibold text-white"
+            >
+              UpComing Webinars
+            </Link>
+
             <a
               href="/free-class-videos"
               target="_blank"

@@ -552,9 +552,63 @@ export async function sendLeadConfirmationEmail({ name, email }) {
     console.log("Lead confirmation email sent");
   } catch (error) {
     console.error("Error sending lead confirmation email:", error);
-    throw error; // optional: remove if you don't want to bubble up the error
+    throw error; 
   }
 }
 
 
 
+
+export async function sendWebinarFeedbackThankYouEmail({ name, email }) {
+  try {
+    await transporter.sendMail({
+      from: '"Dandes Academy" <hello@dandesacademy.com>',
+      to: email,
+      subject: "Thank You for Attending the Webinar",
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+
+          <p>Hello ${name || "there"},</p>
+
+          <p>
+            Thank you for attending our live webinar on<br/>
+            <strong>“AI Engineer vs ML Engineer – Career Roadmap & Role Clarity.”</strong>
+          </p>
+
+          <p>I truly appreciate your time and participation.</p>
+
+          <p>I hope the session gave you:</p>
+
+          <ul style="padding-left: 20px;">
+            <li>Clear understanding of both roles</li>
+            <li>Career direction based on your profile</li>
+            <li>A structured roadmap to move forward</li>
+          </ul>
+
+          <p>
+            If you have selected interest in joining the AI/ML Program or still have
+            questions or need clarity, our team will connect with you shortly to guide
+            you with the next steps.
+          </p>
+
+          <p>Looking forward to supporting you in your AI/ML journey.</p>
+
+          <br/>
+
+          <p>
+            Warm Regards,<br/>
+            <strong>Srinivas Dande</strong><br/>
+            Founder & Lead Trainer<br/>
+            Dandes Academy
+          </p>
+
+        </div>
+      `,
+    });
+
+    console.log("Webinar feedback thank-you email sent");
+  } catch (error) {
+    console.error("Error sending webinar feedback email:", error);
+    throw error; 
+  }
+}

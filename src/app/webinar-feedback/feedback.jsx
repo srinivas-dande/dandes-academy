@@ -52,32 +52,34 @@ export default function FeedbackForm({ onSuccess }) {
     >
 
       <div>
-        <label className="block mb-1 font-medium text-gray-800">
+        <label className="block mb-1 text-lg font-semibold text-gray-800">
           Full Name <span className="text-red-500">*</span>
         </label>
+
         <input
           required
-          className="w-full border border-gray-300 p-3 rounded text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
+          className="w-full border border-gray-300 p-3 rounded text-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
           onChange={(e) => handleChange("fullName", e.target.value)}
         />
       </div>
 
+
     
       <div>
-        <label className="block mb-1 font-medium text-gray-800">
+        <label className="block mb-1 text-lg font-semibold text-gray-800">
           Email ID <span className="text-red-500">*</span>
         </label>
         <input
           type="email"
           required
-          className="w-full border border-gray-300 p-3 rounded text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
+          className="w-full border border-gray-300 p-3 rounded text-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
           onChange={(e) => handleChange("email", e.target.value)}
         />
       </div>
 
       
       <div>
-        <label className="block mb-1 font-medium text-gray-800">
+        <label className="block mb-1 text-lg font-semibold text-gray-800">
           WhatsApp Number <span className="text-red-500">*</span>
         </label>
 
@@ -88,7 +90,7 @@ export default function FeedbackForm({ onSuccess }) {
           pattern="[0-9]{10}"
           maxLength={10}
           placeholder="Enter 10-digit WhatsApp number"
-          className="w-full border border-gray-300 p-3 rounded text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
+          className="w-full border border-gray-300 p-3 rounded text-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
           onChange={(e) => handleChange("whatsappNumber", e.target.value)}
         />
       </div>
@@ -98,7 +100,7 @@ export default function FeedbackForm({ onSuccess }) {
 
 
       <div>
-        <label className="block mb-2 font-medium text-gray-800">
+        <label className="block mb-1 text-lg font-semibold text-gray-800">
           How would you rate the webinar overall? <span className="text-red-500">*</span>
         </label>
 
@@ -134,7 +136,7 @@ export default function FeedbackForm({ onSuccess }) {
 
       
       <div>
-        <label className="block mb-2 font-medium text-gray-800">
+        <label className="block mb-1 text-lg font-semibold text-gray-800">
           Was the difference between AI Engineer & ML Engineer clearly explained? <span className="text-red-500">*</span>
         </label>
         <div className="space-y-2">
@@ -154,7 +156,7 @@ export default function FeedbackForm({ onSuccess }) {
 
       
       <div>
-        <label className="block mb-2 font-medium text-gray-800">
+        <label className="block mb-1 text-lg font-semibold text-gray-800">
           Which part helped you most? <span className="text-red-500">*</span>
         </label>
         <div className="space-y-2">
@@ -179,7 +181,7 @@ export default function FeedbackForm({ onSuccess }) {
 
       
       <div>
-        <label className="block mb-2 font-medium text-gray-800">
+        <label className="block mb-1 text-lg font-semibold text-gray-800">
           Which role are you planning to target? <span className="text-red-500">*</span>
         </label>
         <div className="space-y-2">
@@ -198,7 +200,7 @@ export default function FeedbackForm({ onSuccess }) {
 
     
       <div>
-        <label className="block mb-2 font-medium text-gray-800">
+        <label className="block mb-1 text-lg font-semibold text-gray-800">
           What is your biggest challenge currently? <span className="text-red-500">*</span>
         </label>
         <div className="space-y-2">
@@ -224,7 +226,7 @@ export default function FeedbackForm({ onSuccess }) {
 
       
       <div>
-        <label className="block mb-2 font-medium text-gray-800">
+        <label className="block mb-1 text-lg font-semibold text-gray-800">
           Are you interested in joining Dandes Academy AI/ML Program? <span className="text-red-500">*</span>
         </label>
         <div className="space-y-2">
@@ -249,11 +251,11 @@ export default function FeedbackForm({ onSuccess }) {
 
       
       <div>
-        <label className="block mb-1 font-medium text-gray-800">
+        <label className="block mb-1 text-lg font-semibold text-gray-800">
           What did you like most about the session?
         </label>
         <textarea
-          className="w-full border border-gray-300 p-3 rounded text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
+          className="w-full border border-gray-300 p-3 rounded text-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
           rows={4}
           onChange={(e) =>
             handleChange("sessionFeedback", e.target.value)
@@ -263,7 +265,7 @@ export default function FeedbackForm({ onSuccess }) {
 
       <button
         type="submit"
-        className="w-full bg-black text-white py-3 rounded font-semibold hover:bg-gray-900 transition"
+        className="w-full  text-white py-3 rounded font-semibold bg-[#AD1612] transition"
       >
         Submit Feedback
       </button>

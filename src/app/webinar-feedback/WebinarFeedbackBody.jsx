@@ -23,11 +23,11 @@ export default function WebinarFeedbackBody() {
       ) : (
         <div className="max-w-xl mx-auto text-center py-20">
           <h2 className="text-3xl font-bold text-green-600">
-            🎉 Successfully Registered!
+            🎉 Your FeedBack Form Successfully Submited!
           </h2>
           <p className="mt-3 text-gray-600">
             Thank you for your valuable feedback.  
-            Our team will reach out to you if required.
+            
           </p>
         </div>
       )}

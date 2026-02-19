@@ -19,7 +19,7 @@ export default function WebinarBody() {
   const submitLabel = "Register for Free";
   
   const [registeredCount, setRegisteredCount] = useState(0);
-  const [isExpired, setIsExpired] = useState(false);
+  
 
 
 
@@ -92,9 +92,7 @@ export default function WebinarBody() {
 
         setRegisteredCount(data.count || 0);
 
-        if (new Date() >= webinarDate) {
-          setIsExpired(true);
-        }
+        
 
       } catch (err) {
         console.error("Failed to load data");
@@ -360,11 +358,7 @@ export default function WebinarBody() {
                 </div>
 
 
-                {isExpired && (
-                  <div className="mb-3 rounded-md bg-red-50 border border-red-200 text-red-700 px-3 py-2 text-sm font-medium">
-                    🚫 Registration for this webinar is closed.
-                  </div>
-                )}
+                
 
                 <form onSubmit={onSubmit} className="space-y-4">
 
@@ -389,7 +383,7 @@ export default function WebinarBody() {
                       name="full_Name"
                       value={form.full_Name}
                       onChange={onChange}
-                      disabled={isExpired}
+                      
                       placeholder="Firstname Lastname"
                       className="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white"
                       required
@@ -405,7 +399,7 @@ export default function WebinarBody() {
                       name="email"
                       value={form.email}
                       onChange={onChange}
-                      disabled={isExpired}
+                      
                       placeholder="Enter email address"
                       className="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white"
                       required
@@ -434,7 +428,7 @@ export default function WebinarBody() {
                         name="phone"
                         value={form.phone}
                         onChange={onChange}
-                        disabled={isExpired}
+                        
                         placeholder="Enter phone number"
                         inputMode="numeric"
                         className="flex-1 rounded-lg border border-gray-300 px-2 py-2 text-gray-900 bg-white"
@@ -447,13 +441,12 @@ export default function WebinarBody() {
 
                   <button
                     type="submit"
-                    disabled={loading || isExpired}
-                    className={`w-full rounded-lg px-5 py-2.5 text-sm font-semibold text-white 
-                      ${isExpired ? "bg-gray-400 cursor-not-allowed" : "bg-[#AD1612]"}
-                      disabled:opacity-70`}
+                    disabled={loading}
+                    className="w-full rounded-lg px-5 py-2.5 text-sm font-semibold text-white bg-[#AD1612] disabled:opacity-70"
                   >
-                    {isExpired ? "Registration Closed" : (loading ? "Submitting…" : submitLabel)}
+                    {loading ? "Submitting…" : submitLabel}
                   </button>
+
 
 
                   <p className="text-xs text-gray-500 text-center">

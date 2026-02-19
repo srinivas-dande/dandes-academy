@@ -1,3 +1,5 @@
+
+{/*
 "use client";
 
 import { useState } from "react";
@@ -77,7 +79,7 @@ export default function WebinarForm({
 
   return (
     <form onSubmit={onSubmit} className="space-y-4">
-      {/* Progress Bar */}
+      
       <div className="flex items-center gap-2 mb-2">
         <span className="h-1.5 w-16 rounded bg-[#AD1612]" />
         <span className="h-1.5 w-16 rounded bg-rose-100" />
@@ -91,7 +93,7 @@ export default function WebinarForm({
         </div>
       )}
 
-      {/* Full Name */}
+      
       <div>
         <label className="block text-sm font-medium text-gray-800 mb-1">
           Full Name
@@ -107,7 +109,7 @@ export default function WebinarForm({
         />
       </div>
 
-      {/* Email */}
+    
       <div>
         <label className="block text-sm font-medium text-gray-800 mb-1">
           Email Address
@@ -124,7 +126,7 @@ export default function WebinarForm({
         />
       </div>
 
-      {/* Phone */}
+       
       <div>
         <label className="block text-sm font-medium text-gray-800 mb-1">
           Contact Number
@@ -180,7 +182,7 @@ export default function WebinarForm({
 }
 
 
-{/* Phone 
+*/}
   
 'use client';
 import { useState, useEffect } from 'react';
@@ -395,4 +397,4 @@ export default function LeadForm({ submitLabel = 'Register Now' }) {
 
 
 
-  */}
+

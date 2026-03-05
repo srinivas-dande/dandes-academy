@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import GlobalSchema from "@/components/SEO/GlobalSchema";
 
 
 // src/app/layout.jsx
@@ -76,6 +77,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+          <GlobalSchema />
     
 
     <Script id="gtm-script" strategy="afterInteractive"

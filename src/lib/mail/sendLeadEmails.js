@@ -516,7 +516,7 @@ export async function sendLeadConfirmationEmail({ name, email }) {
             How to Become an AI Engineer or ML Engineer – Roles, Skills & Roadmap
           </h3>
 
-          <p><strong>📅 Date:</strong> 18th Feb 2026 (Wednesday)</p>
+          <p><strong>📅 Date:</strong> 12th Mar 2026 (Thursday)</p>
           <p><strong>⏰ Time:</strong> 8:00 PM IST</p>
           <p><strong>📍 Mode:</strong> Live Online Session</p>
 

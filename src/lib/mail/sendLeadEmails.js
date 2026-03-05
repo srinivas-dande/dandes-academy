@@ -507,43 +507,37 @@ export async function sendLeadConfirmationEmail({ name, email }) {
       to: email,
       subject: "Webinar Registration Confirmed – See You Live | Dandes Academy",
       html: `
-        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
           <h2 style="color:#111;">Hello ${name || "there"},</h2>
 
           <p>Thank you for registering for our upcoming webinar:</p>
 
           <h3 style="margin-bottom: 10px; color: #000;">
-            How to Become an AI Engineer or ML Engineer – Roles, Skills & Roadmap
+            AI Career Switch Blueprint – How Software Engineers Are Transitioning to AI/ML Roles
           </h3>
 
-          <p><strong>📅 Date:</strong> 12th Mar 2026 (Thursday)</p>
-          <p><strong>⏰ Time:</strong> 8:00 PM IST</p>
-          <p><strong>📍 Mode:</strong> Live Online Session</p>
-
-          <br/>
+          <p><strong>📅 Date: 12th March 2026 (Thursday)</strong></p>
+          <p><strong>⏰ Time: 8:00 PM IST</strong></p>
+          <p><strong>📍 Mode: Live Online Session</strong></p>
 
           <p>You will receive the joining link before the session starts.</p>
 
-          <p>In this webinar, you will gain clarity on:</p>
+          <p><strong>In this webinar, you will learn:</strong></p>
 
           <ul style="padding-left: 20px;">
-            <li>The real difference between AI Engineer and ML Engineer roles</li>
-            <li>Skills and tools required in 2026</li>
-            <li>The correct learning roadmap</li>
-            <li>How AI engineering actually works in industry</li>
+            <li>Why many software engineers are moving into AI roles</li>
+            <li>How your existing software engineering experience becomes an advantage</li>
+            <li>The skills you should focus on (and what to skip)</li>
+            <li>A clear roadmap to transition into AI/ML roles</li>
           </ul>
 
-          <br/>
-
           <p>Looking forward to seeing you live!</p>
-
-          <br/>
 
           <p>
             Regards,<br/>
             <strong>Srinivas Dande</strong><br/>
             Founder & Lead Trainer<br/>
-            DandesAcademy
+            Dandes Academy
           </p>
         </div>
       `,
@@ -552,7 +546,7 @@ export async function sendLeadConfirmationEmail({ name, email }) {
     console.log("Lead confirmation email sent");
   } catch (error) {
     console.error("Error sending lead confirmation email:", error);
-    throw error; 
+    throw error;
   }
 }
 

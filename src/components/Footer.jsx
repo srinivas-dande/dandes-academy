@@ -24,11 +24,32 @@ export default function Footer() {
 
               <li>
                 <Link
-                  href="/webinars/how-to-become-an-ai-engineer-or-ml-engineer"
+                  href="/webinars"
                   rel="noopener noreferrer"
                   className="hover:text-white focus:text-white focus:outline-none"
                 >
-                  UpComing Webinars
+                  Webinars
+                </Link>
+              </li>
+
+
+              <li>
+                <Link
+                  href="/testimonials"
+                  rel="noopener noreferrer"
+                  className="hover:text-white focus:text-white focus:outline-none"
+                >
+                  Testimonials
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/free-class-videos"
+                  rel="noopener noreferrer"
+                  className="hover:text-white focus:text-white focus:outline-none"
+                >
+                  Free Class Videos
                 </Link>
               </li>
 
@@ -66,26 +87,10 @@ export default function Footer() {
               </li>
 
     
-              <li>
-                <Link
-                  href="/free-class-videos"
-                  rel="noopener noreferrer"
-                  className="hover:text-white focus:text-white focus:outline-none"
-                >
-                  Free Class Videos
-                </Link>
-              </li>
+    
 
    
-              <li>
-                <Link
-                  href="/testimonials"
-                  rel="noopener noreferrer"
-                  className="hover:text-white focus:text-white focus:outline-none"
-                >
-                  Testimonials
-                </Link>
-              </li>
+              
 
             </ul>
           </div>

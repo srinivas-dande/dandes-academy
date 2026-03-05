@@ -75,8 +75,8 @@ export default function WebinarBody() {
   
 
 
-  const webinarId = "WB-18th-Feb-26";
-  const webinarDate = new Date(2026, 1, 18, 20, 0, 0);
+  const webinarId = "WB-12th-Mar-26";
+  const webinarDate = new Date(2026, 2, 12, 20, 0, 0);
 
 
 
@@ -128,7 +128,7 @@ export default function WebinarBody() {
       {/* IMAGE HERO */}
       <section className="w-full bg-white flex justify-center overflow-hidden">
   <img
-    src="/webinars/ai-ml-webinar.png"
+    src="/webinars/DandesAcedemyWebinar12Mar.png"
     alt="Webinar Banner"
     className="
       w-full
@@ -157,9 +157,10 @@ export default function WebinarBody() {
             <div className="lg:col-span-2">
               <div className="border-b pb-8">
                 <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-5 leading-snug">
-                  Confused Between 
-                  <span className="text-[#AD1612]">
-                    {" "}AI-Engineer or ML Engineer?
+                  AI Career Switch
+ 
+                  <span className="text-[#124394]">
+                    {" "} Blueprint?
                   </span>
                 </h1>
                          
@@ -167,7 +168,7 @@ export default function WebinarBody() {
   <span className="font-semibold tracking-wide">
     Free Live Webinar:
   </span>{" "}
-  <span className="font-semibold tracking-wide text-[#AD1612]">
+  <span className="font-semibold tracking-wide text-[#124394]">
     {formatWebinarDate(webinarDate)}
   </span>
 </p>
@@ -176,104 +177,134 @@ export default function WebinarBody() {
 
               {/* ABOUT */}
               <section className="py-10">
-                <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-red-700">
-                  What You’ll Learn
+                <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-[#124394]">
+                  Many Software Engineers Are Exploring AI — But Don’t Know Where to Start
                 </h2>
 
                 <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
-                  This session will give you complete clarity on AI Engineer and ML Engineer roles — what they actually do, what skills you need, and how to build a structured roadmap to enter the field confidently.
+                  Today, many software engineers with <span className=" font-semibold">5–20 years</span> of experience are asking the same question: 
+                </p>
+
+                <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
+                  
+                  <span className=" font-semibold">“How do we move into AI without starting our careers from scratch?”</span>
+                </p>
+
+                <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
+                  AI is rapidly becoming a core part of modern software systems.
+Companies are building <span className=" font-semibold">AI-powered applications</span>., <span className=" font-semibold">intelligent automation</span>, and <span className=" font-semibold">data-driven platforms</span>.
+As a result, many experienced engineers are now exploring <span className=" font-semibold">Artificial Intelligence</span> and <span className=" font-semibold">Machine Learning</span> as the next step in their careers.
+                </p>
+
+                <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
+                  
+                  <span className=" font-semibold">However, most engineers face a few common challenges:</span>
                 </p>
 
                 <ul className="mt-6 list-disc space-y-3 pl-6 text-20 text-zinc-700">
-                  <li>Real difference between AI Engineer and ML Engineer roles in industry</li>
+                  <li>Too many AI courses but no clear direction</li>
                   <li>
-                    Core responsibilities of each role in real-world projects
+                    Confusion about what skills are actually required
                   </li>
                   <li>
-                    Skills and tools you need to master
+                    Not sure how their existing software experience fits into AI
                   </li>
                   <li>
-                    Correct learning order — what to learn first, what next
+                    Learning random tools without understanding the full roadmap
                   </li>
-                  <li>
-                    Common mistakes learners make while entering AI/ML
-                  </li>
-                  <li>
-                    How AI Engineering actually works in real companies today
-                  </li>
-                  <li>
-                    What kind of Projects you should build to stand out in interviews
-                  </li>
-                  <li>
-                    Step-by-Step Roadmap — from Foundation to Development to Deployment
-                  </li>
+                  
                 </ul>
+
+
+                <p className="mt-2 max-w-5xl text-20 text-zinc-700 leading-relaxed">
+                  Because of this, many engineers start learning AI but soon feel overwhelmed and unsure where to focus.
+                </p>
+
+                <p className="mt-2 max-w-5xl text-20 text-zinc-700 leading-relaxed">
+                  <span className=" font-semibold">The Real Question Engineers Are Asking</span> Instead of starting from zero, most engineers want to understand:
+                </p>
+
+                <p className="mt-2 max-w-5xl text-20 text-zinc-700 leading-relaxed">
+                  <span className=" font-semibold">                  “How can we transition into AI roles by building on our existing software engineering experience?”
+</span>
+                </p>
+
+                <p className="mt-2 max-w-5xl text-20 text-zinc-700 leading-relaxed">
+                  This webinar is designed to answer exactly that question.
+                </p>
+
+                
+
               </section>
 
               {/* WHAT YOU WILL GAIN */}
               <section className="py-10">
-                <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-red-700">
-                  How AI Engineering Actually Works in Industry Today
+                <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-[#124394]">
+                  What You Will Learn in This Webinar
                 </h2>
 
                 <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
-
-                  There is a lot of confusion about AI careers.
-                  Many people think companies build AI models from scratch.
-                  In reality, most companies work very differently.
+                  You will learn Following in this Webinar:
                 </p>
 
-                <ul className="mt-6 list-disc space-y-3 pl-6 text-20 text-zinc-700">
-                  <li>Most companies do NOT train large models from scratch</li>
+                <ul className="mt-6 list-disc space-y-2 pl-6 text-20 text-zinc-700">
+                  <li>Why many <span className=" font-semibold">experienced software engineers</span> are now transitioning into AI careers</li>
                   <li>
-                    They use existing foundation models and APIs
+                    The difference between <span className=" font-semibold">AI Engineer, ML Engineer</span>
                   </li>
                   <li>
-                    The real work is in integration, architecture, and deployment
+                    The <span className=" font-semibold">key skills software engineers should focus on</span> when moving into AI
                   </li>
                   <li>
-                    Understanding both AI tools and ML fundamentals gives you an advantage
+                    How your existing software engineering experience can help you in AI
                   </li>
                   <li>
-                    The industry expects practical problem-solvers — not just theory learners
+                    The <span className=" font-semibold">technology stack</span> commonly used in modern AI systems
+                  </li>
+                  <li>
+                    A <span className=" font-semibold">clear roadmap to transition from traditional software</span> roles into AI/ML
                   </li>
                 </ul>
 
-                <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
-                  In this webinar, you’ll understand how modern AI teams actually operate — and where you fit into that ecosystem.
-                </p>
+          
 
               </section>
 
 
               <section className="py-10">
-                <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-red-700">
+                <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-[#124394]">
                   Who Can Attend This Webinar?
                 </h2>
 
                 <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
+                  This session is designed for <span className=" font-semibold">software engineers who are exploring a transition into AI/ML roles</span>.
 
-                  This session is designed for anyone serious about building a career in AI or Machine Learning.
+                </p>
+
+                <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
+                  This webinar will be especially useful for:
                 </p>
 
                 <ul className="mt-6 list-disc space-y-3 pl-6 text-20 text-zinc-700">
-                  <li>Working professionals exploring a transition into AI/ML</li>
+                  <li>Software engineers with <span className=" font-semibold">5–20 years of experience</span> exploring AI careers</li>
                   <li>
-                    Software developers curious about AI Engineering roles
+                    <span className=" font-semibold">Developers, Tech Leads, Architects,</span> and <span className=" font-semibold">Engineering Managers</span>
+
                   </li>
                   <li>
-                    Freshers confused between AI Engineer and ML Engineer paths
+                    Any engineers curious about <span className=" font-semibold">AI Engineering roles</span>
                   </li>
                   <li>
-                    Data enthusiasts who want structured clarity instead of random learning
+                    Professionals who want to understand <span className=" font-semibold">how their existing software experience fits into AI</span>
                   </li>
                   <li>
-                    Professionals looking to future-proof their career in 2026 and beyond
+                    Engineers looking to <span className=" font-semibold">future-proof their career in the AI era</span>
                   </li>
                 </ul>
 
                 <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
-                  If you are unsure where to start in AI, this session will give you clarity.
+                  If you are wondering how to move into AI without starting your career from scratch, this session will give you the clarity.
+
                 </p>
 
               </section>
@@ -281,28 +312,28 @@ export default function WebinarBody() {
 
               {/* MEET THE SPEAKER */}
               <section className="py-10">
-                <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-red-700">
+                <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-[#124394]">
                   Meet Srinivas Dande
                 </h2>
 
                 <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
-                  Srinivas Dande is the Founder and Lead Trainer at DandesAcademy, with over 20 of experience in software development, system design, and technical mentoring.
+                  Srinivas Dande is the <span className=" font-semibold">Founder and Lead Trainer at DandesAcademy</span>, with over <span className=" font-semibold">20 of experience</span> in software development, system design, and technical mentoring.
                 </p>
 
                 <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
-                  He has trained hundreds of students and working professionals across different technology domains and now focuses on building structured AI and ML learning paths aligned with real industry expectations.
+                  He has trained <span className=" font-semibold">hundreds of students and working professionals</span> across different technology domains and now focuses on building structured AI and ML learning paths aligned with real industry expectations.
                 </p>
 
                 <ul className="mt-6 list-disc space-y-3 pl-6 text-20 text-zinc-700">
                   <li>Founder & Lead Trainer – DandesAcademy</li>
                   <li>Background in Software Development & System Design</li>
-                  <li>Mentor to working professionals transitioning into AI/ML</li>
-                  <li>Designed structured AI/ML curriculum — from foundation to development to deployment</li>
-                  <li>Focus on practical, real-world implementation — not just theory</li>
+                  <li>Mentor to working professionals transitioning into AI/ML careers</li>
+                  <li>Designed a structured AI/ML curriculum — from fundamentals to real-world deployment </li>
+                  <li>Focus on practical implementation and industry-relevant skills, not just theory</li>
                 </ul>
 
                 <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed">
-                  His approach combines fundamentals, practical execution, and industry clarity — helping learners move from confusion to confident career direction.
+                  His teaching approach <span className=" font-semibold">combines strong fundamentals, practical execution, and industry clarity</span>, helping learners move from confusion to confident career direction.
                 </p>
               </section>
 
@@ -310,29 +341,32 @@ export default function WebinarBody() {
 
 
               <section className="py-10">
-                <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-red-700">
-                  Ready to Get Clarity on Your AI/ML Career?
+                <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-[#124394]">
+                  Register for the Webinar
                 </h2>
 
-                <p className="mt-4 max-w-5xl text-20 text-zinc-700 leading-relaxed"></p>
+                
                   
-                  <ul className="mt-6 pl-6 text-xl text-zinc-700">
-                    <li>Stop guessing.</li>
-                    <li>Start building with the right roadmap.</li>
-                  </ul>
+                  
                 
 
                 <ul className="mt-6 list-disc space-y-3 pl-6 text-20 text-zinc-700">
-                  <li>Get structured clarity on AI Engineer vs ML Engineer roles — and move forward with confidence.</li>
+                  <li>
+                    Join this Free Live Webinar and <span className=" font-semibold">understand the clear roadmap software engineers are using to transition into AI/ML careers.
+</span>
+                  </li>
+                  <li>
+                    If you are exploring how to move into AI without starting your career from scratch, this session will give you practical clarity.
+
+                  </li>
+                  
                 </ul>
 
             
 
                 <h1 className="mt-4  max-w-5xl text-xl font-extrabold text-zinc-700 text-center mx-auto">
-                  Join this free live webinar.
-                  <span className="text-[#AD1612]">
-                    {" "}Register Now
-                  </span>
+                  <span className="text-[#124394]">Register now</span> to secure your spot.
+                  
                 </h1>
 
 
@@ -359,10 +393,10 @@ export default function WebinarBody() {
                 <form onSubmit={onSubmit} className="space-y-4">
 
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="h-1.5 w-16 rounded bg-[#AD1612]" />
-                    <span className="h-1.5 w-16 rounded bg-rose-100" />
-                    <span className="h-1.5 w-16 rounded bg-rose-100" />
-                    <span className="h-1.5 w-16 rounded bg-rose-100" />
+                    <span className="h-1.5 w-16 rounded bg-[#124394]" />
+                    <span className="h-1.5 w-16 rounded bg-blue-100" />
+                    <span className="h-1.5 w-16 rounded bg-blue-100" />
+                    <span className="h-1.5 w-16 rounded bg-blue-100" />
                   </div>
 
                   {success && (
@@ -438,7 +472,7 @@ export default function WebinarBody() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full rounded-lg px-5 py-2.5 text-sm font-semibold text-white bg-[#AD1612] disabled:opacity-70"
+                    className="w-full rounded-lg px-5 py-2.5 text-sm font-semibold text-white bg-[#124394] disabled:opacity-70"
                   >
                     {loading ? "Submitting…" : submitLabel}
                   </button>

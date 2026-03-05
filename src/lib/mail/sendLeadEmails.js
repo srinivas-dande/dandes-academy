@@ -16,10 +16,10 @@ function getSubmittedDate() {
 -------------------------------------------------- */
 function getSalesEmails(leadOwner) {
   
-  if(leadOwner=="Krishan Chaitanya")
-    return "chaitanya@tatpara.com"
+  if(leadOwner=="Krishna Chaitanya")
+    return "chaitanya@dandesacademy.com"
   else if(leadOwner=="Swetha Ramana")
-    return "swetha@tatpara.com"
+    return "Swetha@dandesacademy.com"
   else
     return "hello@dandesacademy.com"
   

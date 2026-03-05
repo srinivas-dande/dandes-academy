@@ -1,3 +1,196 @@
+
+"use client";
+
+import { useState } from "react";
+
+export default function WebinarForm({
+  
+  submitLabel = "Register for Free",
+  isExpired = false,
+  onSuccess,
+}) {
+   const webinarId = "WB-12th-Mar-26";
+  const [form, setForm] = useState({
+    full_Name: "",
+    email: "",
+    phone: "",
+    countryCode: "+91",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+  
+  
+
+  const onChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setError("");
+    setSuccess(false);
+
+    try {
+      const res = await fetch("/da-api/webinars", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          webinarId,
+          fullName: form.full_Name,
+          email: form.email,
+          phone: form.countryCode + form.phone,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setSuccess(true);
+
+      if (onSuccess) {
+        onSuccess(); // used to increase registered count
+      }
+
+      setForm({
+        full_Name: "",
+        email: "",
+        phone: "",
+        countryCode: "+91",
+      });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={onSubmit} className="space-y-4">
+      
+      <div className="flex items-center gap-2 mb-2">
+        <span className="h-1.5 w-16 rounded bg-[#AD1612]" />
+        <span className="h-1.5 w-16 rounded bg-rose-100" />
+        <span className="h-1.5 w-16 rounded bg-rose-100" />
+        <span className="h-1.5 w-16 rounded bg-rose-100" />
+      </div>
+
+      {success && (
+        <div className="rounded-md bg-green-50 border border-green-200 text-green-700 px-3 py-2 text-sm font-medium">
+          You have successfully registered!
+        </div>
+      )}
+
+      
+      <div>
+        <label className="block text-sm font-medium text-gray-800 mb-1">
+          Full Name
+        </label>
+        <input
+          name="full_Name"
+          value={form.full_Name}
+          onChange={onChange}
+          disabled={isExpired}
+          placeholder="Firstname Lastname"
+          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white"
+          required
+        />
+      </div>
+
+    
+      <div>
+        <label className="block text-sm font-medium text-gray-800 mb-1">
+          Email Address
+        </label>
+        <input
+          type="email"
+          name="email"
+          value={form.email}
+          onChange={onChange}
+          disabled={isExpired}
+          placeholder="Enter email address"
+          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white"
+          required
+        />
+      </div>
+
+       
+      <div>
+        <label className="block text-sm font-medium text-gray-800 mb-1">
+          Contact Number
+        </label>
+        <div className="flex gap-2">
+          <select
+            name="countryCode"
+            value={form.countryCode}
+            onChange={onChange}
+            className="w-28 rounded-lg border border-gray-300 px-2 py-2 bg-white text-gray-900"
+          >
+            <option value="+91">🇮🇳 +91</option>
+            <option value="+1">🇺🇸 +1</option>
+            <option value="+44">🇬🇧 +44</option>
+            <option value="+61">🇦🇺 +61</option>
+            <option value="+971">🇦🇪 +971</option>
+          </select>
+
+          <input
+            name="phone"
+            value={form.phone}
+            onChange={onChange}
+            disabled={isExpired}
+            placeholder="Enter phone number"
+            inputMode="numeric"
+            className="flex-1 rounded-lg border border-gray-300 px-2 py-2 text-gray-900 bg-white"
+            required
+          />
+        </div>
+      </div>
+
+      {error && <p className="text-sm text-red-600">{error}</p>}
+
+      <button
+        type="submit"
+        disabled={loading || isExpired}
+        className={`w-full rounded-lg px-5 py-2.5 text-sm font-semibold text-white 
+        ${isExpired ? "bg-gray-400 cursor-not-allowed" : "bg-[#AD1612]"}
+        disabled:opacity-70`}
+      >
+        {isExpired
+          ? "Registration Closed"
+          : loading
+          ? "Submitting…"
+          : submitLabel}
+      </button>
+
+      <p className="text-xs text-gray-500 text-center">
+        By submitting, you agree to be contacted via Email/WhatsApp/Phone.
+      </p>
+    </form>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+{/*
 'use client';
 import { useState, useEffect } from 'react';
 
@@ -209,205 +402,12 @@ export default function LeadForm({ submitLabel = 'Register Now' }) {
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/}
 
 
 
 
 {/*
-"use client";
-
-import { useState } from "react";
-
-export default function WebinarForm({
-  
-  submitLabel = "Register for Free",
-  isExpired = false,
-  onSuccess,
-}) {
-   const webinarId = "WB-18th-Feb-26";
-  const [form, setForm] = useState({
-    full_Name: "",
-    email: "",
-    phone: "",
-    countryCode: "+91",
-  });
-
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
-  
-  
-
-  const onChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    setLoading(true);
-    setError("");
-    setSuccess(false);
-
-    try {
-      const res = await fetch("/da-api/webinars", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          webinarId,
-          fullName: form.full_Name,
-          email: form.email,
-          phone: form.countryCode + form.phone,
-        }),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || "Something went wrong");
-      }
-
-      setSuccess(true);
-
-      if (onSuccess) {
-        onSuccess(); // used to increase registered count
-      }
-
-      setForm({
-        full_Name: "",
-        email: "",
-        phone: "",
-        countryCode: "+91",
-      });
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <form onSubmit={onSubmit} className="space-y-4">
-      
-      <div className="flex items-center gap-2 mb-2">
-        <span className="h-1.5 w-16 rounded bg-[#AD1612]" />
-        <span className="h-1.5 w-16 rounded bg-rose-100" />
-        <span className="h-1.5 w-16 rounded bg-rose-100" />
-        <span className="h-1.5 w-16 rounded bg-rose-100" />
-      </div>
-
-      {success && (
-        <div className="rounded-md bg-green-50 border border-green-200 text-green-700 px-3 py-2 text-sm font-medium">
-          You have successfully registered!
-        </div>
-      )}
-
-      
-      <div>
-        <label className="block text-sm font-medium text-gray-800 mb-1">
-          Full Name
-        </label>
-        <input
-          name="full_Name"
-          value={form.full_Name}
-          onChange={onChange}
-          disabled={isExpired}
-          placeholder="Firstname Lastname"
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white"
-          required
-        />
-      </div>
-
-    
-      <div>
-        <label className="block text-sm font-medium text-gray-800 mb-1">
-          Email Address
-        </label>
-        <input
-          type="email"
-          name="email"
-          value={form.email}
-          onChange={onChange}
-          disabled={isExpired}
-          placeholder="Enter email address"
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white"
-          required
-        />
-      </div>
-
-       
-      <div>
-        <label className="block text-sm font-medium text-gray-800 mb-1">
-          Contact Number
-        </label>
-        <div className="flex gap-2">
-          <select
-            name="countryCode"
-            value={form.countryCode}
-            onChange={onChange}
-            className="w-28 rounded-lg border border-gray-300 px-2 py-2 bg-white text-gray-900"
-          >
-            <option value="+91">🇮🇳 +91</option>
-            <option value="+1">🇺🇸 +1</option>
-            <option value="+44">🇬🇧 +44</option>
-            <option value="+61">🇦🇺 +61</option>
-            <option value="+971">🇦🇪 +971</option>
-          </select>
-
-          <input
-            name="phone"
-            value={form.phone}
-            onChange={onChange}
-            disabled={isExpired}
-            placeholder="Enter phone number"
-            inputMode="numeric"
-            className="flex-1 rounded-lg border border-gray-300 px-2 py-2 text-gray-900 bg-white"
-            required
-          />
-        </div>
-      </div>
-
-      {error && <p className="text-sm text-red-600">{error}</p>}
-
-      <button
-        type="submit"
-        disabled={loading || isExpired}
-        className={`w-full rounded-lg px-5 py-2.5 text-sm font-semibold text-white 
-        ${isExpired ? "bg-gray-400 cursor-not-allowed" : "bg-[#AD1612]"}
-        disabled:opacity-70`}
-      >
-        {isExpired
-          ? "Registration Closed"
-          : loading
-          ? "Submitting…"
-          : submitLabel}
-      </button>
-
-      <p className="text-xs text-gray-500 text-center">
-        By submitting, you agree to be contacted via Email/WhatsApp/Phone.
-      </p>
-    </form>
-  );
-}
-
 
 */}
   

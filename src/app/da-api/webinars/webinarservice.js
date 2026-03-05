@@ -8,21 +8,6 @@ export async function registerWebinar(data) {
     throw new Error("All fields are required");
   }
 
-
-  const existing = await prisma.webinar_Registrations.findFirst({
-    where: {
-      webinarId,
-      OR: [
-        { email },
-        { phone }
-      ]
-    }
-  });
-
-  if (existing) {
-    throw new Error("You are already registered for this webinar.");
-  }
-
   return await prisma.$transaction(async (tx) => {
 
     // Insert into Webinar_Registrations

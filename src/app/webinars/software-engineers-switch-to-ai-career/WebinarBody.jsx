@@ -1,7 +1,5 @@
 "use client";
-
 import { useState, useEffect } from "react";
-
 
 export default function WebinarBody() {
 
@@ -17,10 +15,12 @@ export default function WebinarBody() {
   const [error, setError] = useState("");
 
   const submitLabel = "Register for Free";
-  
   const [registeredCount, setRegisteredCount] = useState(0);
   
   const onChange = (e) => {
+    setError("")
+    setSuccess(false)
+
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -29,6 +29,12 @@ export default function WebinarBody() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (loading || success) return
+    
+    if (form.phone.length !== 10) {
+      setError("Please enter a valid 10 digit phone number")
+      return
+    }
 
     setLoading(true);
     setError("");
@@ -72,13 +78,8 @@ export default function WebinarBody() {
     }
   };
 
-  
-
-
   const webinarId = "WB-12th-Mar-26";
   const webinarDate = new Date(2026, 2, 12, 20, 0, 0);
-
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -121,32 +122,25 @@ export default function WebinarBody() {
     return `${day}${suffix} ${month} ${year} (${weekday}) • ${time}`;
   };
 
-
-
   return (
     <div className="w-full bg-white">
       {/* IMAGE HERO */}
       <section className="w-full bg-white flex justify-center overflow-hidden">
-  <img
-    src="/webinars/DandesAcedemyWebinar12Mar.png"
-    alt="Webinar Banner"
-    className="
-      w-full
-      h-auto
-      max-h-[220px]        /* Mobile */
-      sm:max-h-[300px]
-      md:max-h-[420px]     /* Tablet */
-      lg:max-h-[500px]     /* Laptop */
-      object-contain
-    "
-    draggable="false"
-  />
-</section>
-
-
-
-
-
+        <img
+          src="/webinars/DandesAcedemyWebinar12Mar.png"
+          alt="Webinar Banner"
+          className="
+            w-full
+            h-auto
+            max-h-[220px]        /* Mobile */
+            sm:max-h-[300px]
+            md:max-h-[420px]     /* Tablet */
+            lg:max-h-[500px]     /* Laptop */
+            object-contain
+          "
+          draggable="false"
+        />
+      </section>
 
       {/* MAIN CONTENT + FORM */}
       <section className="py-10">
@@ -165,13 +159,13 @@ export default function WebinarBody() {
                 </h1>
                          
                 <p className="rounded bg-sky-50 mt-4 text-xl text-zinc-900 md:text-xl">
-  <span className="font-semibold tracking-wide">
-    Free Live Webinar:
-  </span>{" "}
-  <span className="font-semibold tracking-wide text-[#124394]">
-    {formatWebinarDate(webinarDate)}
-  </span>
-</p>
+                  <span className="font-semibold tracking-wide">
+                    Free Live Webinar:
+                  </span>{" "}
+                  <span className="font-semibold tracking-wide text-[#124394]">
+                    {formatWebinarDate(webinarDate)}
+                  </span>
+                </p>
 
               </div>
 
@@ -337,23 +331,15 @@ As a result, many experienced engineers are now exploring <span className=" font
                 </p>
               </section>
 
-              
-
-
               <section className="py-10">
                 <h2 className="rounded bg-sky-50 px-4 py-2 text-lg font-semibold text-[#124394]">
                   Register for the Webinar
                 </h2>
 
-                
-                  
-                  
-                
 
                 <ul className="mt-6 list-disc space-y-3 pl-6 text-20 text-zinc-700">
                   <li>
-                    Join this Free Live Webinar and <span className=" font-semibold">understand the clear roadmap software engineers are using to transition into AI/ML careers.
-</span>
+                    Join this Free Live Webinar and <span className=" font-semibold">understand the clear roadmap software engineers are using to transition into AI/ML careers.</span>
                   </li>
                   <li>
                     If you are exploring how to move into AI without starting your career from scratch, this session will give you practical clarity.
@@ -362,13 +348,11 @@ As a result, many experienced engineers are now exploring <span className=" font
                   
                 </ul>
 
-            
-
+          
                 <h1 className="mt-4  max-w-5xl text-xl font-extrabold text-zinc-700 text-center mx-auto">
                   <span className="text-[#124394]">Register now</span> to secure your spot.
                   
                 </h1>
-
 
               </section>
             
@@ -386,9 +370,6 @@ As a result, many experienced engineers are now exploring <span className=" font
                     <span className="text-lg font-semibold">{registeredCount}</span> Users registered
                   </span>
                 </div>
-
-
-                
 
                 <form onSubmit={onSubmit} className="space-y-4">
 
@@ -457,7 +438,14 @@ As a result, many experienced engineers are now exploring <span className=" font
                       <input
                         name="phone"
                         value={form.phone}
-                        onChange={onChange}
+                        onChange={(e) => {
+                          const onlyNums = e.target.value.replace(/\D/g, "")
+                            if (onlyNums.length <= 10) {
+                              setSuccess(false)
+                              setError("")
+                              setForm({ ...form, phone: onlyNums })
+                            }
+                        }}
                         
                         placeholder="Enter phone number"
                         inputMode="numeric"
@@ -471,13 +459,11 @@ As a result, many experienced engineers are now exploring <span className=" font
 
                   <button
                     type="submit"
-                    disabled={loading}
+                    disabled={loading || success}
                     className="w-full rounded-lg px-5 py-2.5 text-sm font-semibold text-white bg-[#124394] disabled:opacity-70"
                   >
-                    {loading ? "Submitting…" : submitLabel}
+                    {loading ? "Registering..." : submitLabel}
                   </button>
-
-
 
                   <p className="text-xs text-gray-500 text-center">
                     By submitting, you agree to be contacted via Email/WhatsApp/Phone.

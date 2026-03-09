@@ -14,6 +14,7 @@ export async function POST(req) {
       await sendLeadConfirmationEmail({
         name: body.fullName,
         email: body.email,
+        
       });
     }
 

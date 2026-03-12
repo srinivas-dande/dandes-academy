@@ -144,6 +144,7 @@ return ( <form
             type="radio"
             name="experienceLevel"
             required
+            className="scale-150 cursor-pointer"
             onChange={() => handleChange("experienceLevel", v)}
           />
           {v}
@@ -169,6 +170,7 @@ return ( <form
         <label key={v} className="flex items-center gap-2">
           <input
             type="checkbox"
+            className="scale-150 cursor-pointer"
             onChange={() => handleCheckbox("valuableTopics", v)}
           />
           {v}
@@ -193,6 +195,7 @@ return ( <form
             type="radio"
             name="targetRole"
             required
+            className="scale-150 cursor-pointer"
             onChange={() => handleChange("targetRole", v)}
           />
           {v}
@@ -219,6 +222,7 @@ return ( <form
         <label key={v} className="flex items-center gap-2">
           <input
             type="checkbox"
+            className="scale-150 cursor-pointer"
             onChange={() => handleCheckbox("biggestChallenges", v)}
           />
           {v}
@@ -248,6 +252,7 @@ return ( <form
             type="radio"
             name="programInterest"
             required
+            className="scale-150 cursor-pointer"
             onChange={() => handleChange("programInterest", v)}
           />
           {v}
@@ -269,6 +274,7 @@ return ( <form
             type="radio"
             name="contentClarity"
             required
+            className="scale-150 cursor-pointer"
             onChange={() => handleChange("contentClarity", v)}
           />
           {v}
@@ -317,6 +323,7 @@ return ( <form
             type="radio"
             name="recommendation"
             required
+            className="scale-150 cursor-pointer"
             onChange={() => handleChange("recommendation", v)}
           />
           {v}

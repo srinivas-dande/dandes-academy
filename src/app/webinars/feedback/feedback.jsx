@@ -88,7 +88,7 @@ return ( <form
 
   {/* Full Name */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       Full Name <span className="text-red-500">*</span>
     </label>
 
@@ -101,7 +101,7 @@ return ( <form
 
   {/* Email */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       Email ID <span className="text-red-500">*</span>
     </label>
 
@@ -115,7 +115,7 @@ return ( <form
 
   {/* WhatsApp */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       WhatsApp Number <span className="text-red-500">*</span>
     </label>
 
@@ -133,11 +133,11 @@ return ( <form
 
   {/* Q4 Experience */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       What is your current experience level? <span className="text-red-500">*</span>
     </label>
 
-    <div className="flex flex-wrap gap-x-6 gap-y-2">
+    <div className="flex text-lg flex-wrap gap-x-6 gap-y-2">
       {["Student / Fresher", "1–5 years", "5–10 years", "10+ years"].map((v) => (
         <label key={v} className="flex items-center gap-2">
           <input
@@ -154,11 +154,11 @@ return ( <form
 
   {/* Q5 Valuable Topics */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       Which topic did you find most valuable? <span className="text-red-500">*</span>
     </label>
 
-    <div className="space-y-2">
+    <div className=" text-lg space-y-2">
       {[
         "AI Engineer vs ML Engineer comparison",
         "The 6-Step AI/ML Roadmap",
@@ -182,11 +182,11 @@ return ( <form
 
   {/* Q6 Target Role */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       Which role are you planning to target? <span className="text-red-500">*</span>
     </label>
 
-    <div className="space-y-2">
+    <div className=" text-lg space-y-2">
       {["AI Engineer", "ML Engineer", "Not Sure Yet"].map((v) => (
         <label key={v} className="flex items-center gap-2">
           <input
@@ -203,11 +203,11 @@ return ( <form
 
   {/* Q7 Challenges */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       What is your biggest challenge currently? <span className="text-red-500">*</span>
     </label>
 
-    <div className="space-y-2">
+    <div className="text-lg space-y-2">
       {[
         "No proper roadmap",
         "Weak in programming",
@@ -232,11 +232,11 @@ return ( <form
 
   {/* Q8 Program Interest */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       Are you interested in joining Dandes Academy AI/ML Program? <span className="text-red-500">*</span>
     </label>
 
-    <div className="space-y-2">
+    <div className="text-lg space-y-2">
       {[
         "Yes – I am ready to enroll",
         "Yes – Need more details",
@@ -258,11 +258,11 @@ return ( <form
 
   {/* Q9 Clarity */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       How clear and relevant was the content presented? <span className="text-red-500">*</span>
     </label>
 
-    <div className="space-y-2">
+    <div className="text-lg space-y-2">
       {["Very Clear", "Mostly Clear", "Somewhat Clear", "Not Clear"].map((v) => (
         <label key={v} className="flex items-center gap-2">
           <input
@@ -279,11 +279,11 @@ return ( <form
 
   {/* Star Rating */}
   <div>
-    <label className="block mb-2 text-lg font-semibold text-gray-800">
+    <label className="block mb-2 text-2xl font-semibold text-gray-800">
       How would you rate the overall webinar experience? <span className="text-red-500">*</span>
     </label>
 
-    <div className="flex gap-2 text-3xl cursor-pointer">
+    <div className=" text-3xl flex gap-2  cursor-pointer">
       {[1,2,3,4,5].map((star) => (
         <span
           key={star}
@@ -306,11 +306,11 @@ return ( <form
 
   {/* Recommend */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       Would you recommend this webinar to a friend or colleague? <span className="text-red-500">*</span>
     </label>
 
-    <div className="space-y-2">
+    <div className="text-lg space-y-2">
       {["Definitely Yes", "Maybe", "No"].map((v) => (
         <label key={v} className="flex items-center gap-2">
           <input
@@ -327,7 +327,7 @@ return ( <form
 
   {/* Feedback */}
   <div>
-    <label className="block mb-1 text-lg font-semibold text-gray-800">
+    <label className="block mb-1 text-2xl font-semibold text-gray-800">
       Any other feedback, questions, or thoughts? <span className="text-red-500">*</span>
     </label>
 

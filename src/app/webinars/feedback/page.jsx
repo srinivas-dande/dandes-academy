@@ -5,7 +5,7 @@ import WebinarFeedbackBody from "./WebinarFeedbackBody";
 export const metadata = {
   title: "Webinar Feedback | Dandes Academy",
   description:
-    "Share your feedback for the AI Engineer vs ML Engineer webinar.",
+    "Share your feedback for the How Software Engineers are Transitioning to AI/ML Roles.",
   alternates: {
     canonical: "/feedback",
   },

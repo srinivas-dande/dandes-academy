@@ -18,7 +18,7 @@ export default function WebinarFeedbackBody() {
             </span>
           </h1>
           <p className="text-center text-3xl text-gray-600 mb-8">
-            webinar feedback form 
+            Webinar Feedback Form 
           </p>
 
           <FeedbackForm onSuccess={() => setSubmitted(true)} />

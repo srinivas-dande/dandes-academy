@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import FeedbackForm from "./feedback";
 
@@ -11,17 +10,29 @@ export default function WebinarFeedbackBody() {
       {!submitted ? (
         <>
             
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-center leading-tight text-gray-900">
-            Webinar Feedback Form
+          <h1 className="text-center sm:text-4xl font-extrabold text-gray-900 mb-5 leading-snug">
+            AI Career Switch
+ 
+            <span className="text-[#124394]">
+              {" "} Blueprint
+            </span>
           </h1>
-          <p className="text-center text-gray-600 mb-8">
-            Your feedback helps us improve future sessions
+          <p className="text-center text-3xl text-gray-600 mb-8">
+            webinar feedback form 
           </p>
 
           <FeedbackForm onSuccess={() => setSubmitted(true)} />
         </>
       ) : (
         <div className="max-w-xl mx-auto text-center py-20">
+          <h1 className="text-center sm:text-4xl font-extrabold text-gray-900 mb-5 leading-snug">
+            AI Career Switch
+ 
+            <span className="text-[#124394]">
+              {" "} Blueprint
+            </span>
+          </h1>
+
           <h2 className="text-3xl font-bold text-green-600">
             🎉 Your FeedBack Form Successfully Submited!
           </h2>

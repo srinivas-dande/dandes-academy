@@ -566,7 +566,7 @@ export async function sendWebinarFeedbackThankYouEmail({ name, email }) {
 
           <p>
             Thank you for attending our live webinar on<br/>
-            <strong>“AI Engineer vs ML Engineer – Career Roadmap & Role Clarity.”</strong>
+            <strong>“How Software Engineers are Transitioning to AI/ML Roles”</strong>
           </p>
 
           <p>I truly appreciate your time and participation.</p>

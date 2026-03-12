@@ -214,13 +214,20 @@ model Webinar_Feedback {
   fullName          String    @db.VarChar(100)
   email             String    @db.VarChar(150)
   whatsappNumber    String    @db.VarChar(20)
-  webinarRating     Int
-  clarityLevel      String    @db.VarChar(30)
-  helpfulParts      String[]
-  targetRoles       String[]
+
+  experienceLevel   String    @db.VarChar(50)
+  valuableTopics    String[]
+  targetRole        String    @db.VarChar(50)
   biggestChallenges String[]
+
   programInterest   String    @db.VarChar(50)
-  sessionFeedback   String?
+  contentClarity    String    @db.VarChar(50)
+
+  webinarRating     Int
+  recommendation    String    @db.VarChar(50)
+
+  extraFeedback     String?
+
   createdAt         DateTime? @default(now()) @db.Timestamp(6)
   status            String?   @default("ACTIVE") @db.VarChar(20)
 }

@@ -10,20 +10,14 @@ export async function POST(req) {
       email,
       whatsappNumber,
       webinarRating,
-      clarityLevel,
-      helpfulParts,
-      targetRoles,
-      biggestChallenges,
       programInterest,
     } = body;
 
-    
     if (
       !fullName ||
       !email ||
       !whatsappNumber ||
       !webinarRating ||
-      !clarityLevel ||
       !programInterest
     ) {
       return NextResponse.json(
@@ -32,12 +26,13 @@ export async function POST(req) {
       );
     }
 
-    
     await saveWebinarFeedbackAndSendEmail(body);
 
     return NextResponse.json({ success: true }, { status: 201 });
+
   } catch (error) {
     console.error("Webinar feedback API error:", error);
+
     return NextResponse.json(
       { message: "Server error" },
       { status: 500 }

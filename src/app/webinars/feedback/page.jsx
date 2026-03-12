@@ -7,7 +7,7 @@ export const metadata = {
   description:
     "Share your feedback for the AI Engineer vs ML Engineer webinar.",
   alternates: {
-    canonical: "/webinar-feedback",
+    canonical: "/feedback",
   },
 };
 

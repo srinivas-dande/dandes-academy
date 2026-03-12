@@ -125,7 +125,7 @@ return ( <form
       inputMode="numeric"
       pattern="[0-9]{10}"
       maxLength={10}
-      placeholder="Enter 10-digit WhatsApp number"
+      placeholder="+91-12345 678910"
       className="w-full border border-gray-300 p-3 rounded text-2xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-black"
       onChange={(e) => handleChange("whatsappNumber", e.target.value)}
     />

@@ -9,7 +9,7 @@ export default function WebinarForm({
   isExpired = false,
   onSuccess,
 }) {
-   const webinarId = "WB-12th-Mar-26";
+   const webinarId = "WB-26th-Mar-26";
   const [form, setForm] = useState({
     full_Name: "",
     email: "",

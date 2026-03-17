@@ -19,6 +19,9 @@ const webinars = [
   },
 ];
 
+
+
+
 export default function WebinarHome() {
   const [counts, setCounts] = useState({});
 

@@ -550,6 +550,51 @@ export async function sendLeadConfirmationEmail({ name, email }) {
   }
 }
 
+export async function sendSalesLeadEmail({ fullName, email, phone }) {
+  try {
+    await transporter.sendMail({
+      from: '"Dandes Academy" <hello@dandesacademy.com>',
+      to: [
+        "chaitanya@dandesacademy.com",
+        "swetha@dandesacademy.com"
+      ],
+      subject: `26th March 2026 - ${fullName || "Unknown"} - AI/ML Webinar Registration`,
+      html: `
+        <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
+          
+          <h2 style="color:#111;">New Lead Received</h2>
+
+          <p>A new user has registered for the AI/ML webinar.</p>
+
+          <h3 style="margin-bottom: 10px; color: #000;">
+            Lead Details
+          </h3>
+
+          <p><strong>Name:</strong> ${fullName || "-"}</p>
+          <p><strong>Email:</strong> ${email || "-"}</p>
+          <p><strong>Phone:</strong> ${phone || "-"}</p>
+
+          <hr style="margin:20px 0;" />
+
+          <p style="font-size:12px; color:#888;">
+            Source: AI/ML Webinar Landing Page
+          </p>
+
+          <p>
+            Regards,<br/>
+            <strong>Dandes Academy System</strong>
+          </p>
+        </div>
+      `,
+    });
+
+    console.log("Sales lead email sent");
+  } catch (error) {
+    console.error("Error sending sales lead email:", error);
+    throw error;
+  }
+}
+
 
 
 

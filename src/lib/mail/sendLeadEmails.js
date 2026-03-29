@@ -516,7 +516,7 @@ export async function sendLeadConfirmationEmail({ name, email }) {
             AI Career Switch Blueprint – How Software Engineers Are Transitioning to AI/ML Roles
           </h3>
 
-          <p><strong>📅 Date: 26th March 2026 (Thursday)</strong></p>
+          <p><strong>📅 Date: 2nd April 2026 (Thursday)</strong></p>
           <p><strong>⏰ Time: 8:00 PM IST</strong></p>
           <p><strong>📍 Mode: Live Online Session</strong></p>
 
@@ -558,7 +558,7 @@ export async function sendSalesLeadEmail({ fullName, email, phone }) {
         "chaitanya@dandesacademy.com",
         "swetha@dandesacademy.com"
       ],
-      subject: `26th March 2026 - ${fullName || "Unknown"} - AI/ML Webinar Registration`,
+      subject: `2nd April 2026 - ${fullName || "Unknown"} - AI/ML Webinar Registration`,
       html: `
         <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
           

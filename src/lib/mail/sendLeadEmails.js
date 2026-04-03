@@ -517,7 +517,7 @@ export async function sendLeadConfirmationEmail({ name, email }) {
           </h3>
 
           <p><strong>📅 Date: 5th April 2026 (Sunday)</strong></p>
-          <p><strong>⏰ Time: 8:00 PM IST</strong></p>
+          <p><strong>⏰ Time: 12:30 PM IST</strong></p>
           <p><strong>📍 Mode: Live Online Session</strong></p>
 
           <p>You will receive the joining link before the session starts.</p>

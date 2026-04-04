@@ -12,7 +12,7 @@ const webinars = [
 
   },
   {
-    webinarId: "WB-2nd-Apr-26",
+    webinarId: "WB-9th-Apr-26",
     link: "/webinars/software-engineers-switch-to-ai-career",
     buttonText: "Register",
     disabled: false

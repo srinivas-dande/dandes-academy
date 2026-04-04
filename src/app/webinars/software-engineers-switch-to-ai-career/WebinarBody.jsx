@@ -78,8 +78,8 @@ export default function WebinarBody() {
     }
   };
 
-  const webinarId = "WB-2nd-Apr-26";
-  const webinarDate = new Date(2026, 3, 5, 12, 30, 0);
+  const webinarId = "WB-9th-Apr-26";
+  const webinarDate = new Date(2026, 3, 9, 20, 0, 0);
 
   useEffect(() => {
     const fetchData = async () => {

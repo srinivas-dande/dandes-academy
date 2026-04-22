@@ -516,7 +516,7 @@ export async function sendLeadConfirmationEmail({ name, email }) {
             AI Career Switch Blueprint – How Software Engineers Are Transitioning to AI/ML Roles
           </h3>
 
-          <p><strong>📅 Date: 23rd April 2026 (Thursday)</strong></p>
+          <p><strong>📅 Date: 28th April 2026 (Tuesday)</strong></p>
           <p><strong>⏰ Time: 8:00 PM IST</strong></p>
           <p><strong>📍 Mode: Live Online Session</strong></p>
 

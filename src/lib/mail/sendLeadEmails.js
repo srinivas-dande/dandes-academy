@@ -552,13 +552,19 @@ export async function sendLeadConfirmationEmail({ name, email }) {
 
 export async function sendSalesLeadEmail({ fullName, email, phone }) {
   try {
+    const todayDate = new Date().toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    })
+
     await transporter.sendMail({
       from: '"Dandes Academy" <hello@dandesacademy.com>',
       to: [
         "chaitanya@dandesacademy.com",
         "swetha@dandesacademy.com"
       ],
-      subject: `2nd April 2026 - ${fullName || "Unknown"} - AI/ML Webinar Registration`,
+      subject: `${todayDate} - ${fullName || "Unknown"} - AI/ML Webinar Registration`,
       html: `
         <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
           
@@ -577,7 +583,7 @@ export async function sendSalesLeadEmail({ fullName, email, phone }) {
           <hr style="margin:20px 0;" />
 
           <p style="font-size:12px; color:#888;">
-            Source: AI/ML Webinar Landing Page
+            Source: AI/ML Webinar Page
           </p>
 
           <p>

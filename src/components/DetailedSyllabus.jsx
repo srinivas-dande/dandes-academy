@@ -421,7 +421,7 @@ export default function DetailedSyllabus() {
             href="#lead-form"
             className="inline-flex items-center gap-2 rounded-lg bg-[#AD1612] px-5 py-3 text-sm font-semibold text-white hover:bg-[#92100E] transition"
           >
-            Enroll for the next AI/ML Course Cohort <ArrowRight className="h-4 w-4" />
+            Register For More Details <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </div>

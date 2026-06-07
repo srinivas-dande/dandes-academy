@@ -14,8 +14,8 @@ const webinars = [
   {
     webinarId: "WB-28th-May-26",
     link: "/webinars/software-engineers-switch-to-ai-career",
-    buttonText: "Register",
-    disabled: false
+    buttonText: "Completed",
+    disabled: true
   },
 ];
 

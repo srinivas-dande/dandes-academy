@@ -87,7 +87,7 @@ export async function handleAddLeadCapture(payload = {}) {
 
     formattedName = toTitleCase(full_Name);
     finalCourse = course_Interested || course || "AI/ML Course";
-    finalSource = lead_source || "Brochure";
+    finalSource = lead_source || "DA Network";
 
     // SAME default owner as (1)
     let leadOwner = "Srinivas";
@@ -99,29 +99,18 @@ export async function handleAddLeadCapture(payload = {}) {
 
     const normalizedSource = (lead_ad_source || "direct").toLowerCase();
     const finalAdSource = adSourceMap[normalizedSource] || "Direct";
-
-    const newLead = await prisma.daleads.create({
+ 
+    const newLead = await prisma.Batch3_Leads.create({
       data: {
         fullName: formattedName,
-        email: String(email).trim(),
-        phone: phone ? String(phone).trim() : null,
-        leadSource: finalSource,
-        leadOwner,
-        adSource: finalAdSource,
+        emailId: String(email).trim(),
+        phone: phone ? String(phone).trim() : "",
+        leadSource: "DA Network",
+        form_type: "Brochure",
         leadStatus: "New",
-        courses: {
-          create: {
-            courseInterested: finalCourse,
-            remarks: Remarks || "NA",
-          },
-        },
       },
     });
 
-    await updateLeadByOwner(leadOwner);
-    await updateLeadByAdSource(finalAdSource);
-    await updateLeadBySource(finalSource);
-    await updateLeadByCourse(finalCourse);
 
     sendLeadEmails({
       fullName: formattedName,

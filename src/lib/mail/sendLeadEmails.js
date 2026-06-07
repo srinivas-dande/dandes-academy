@@ -492,7 +492,7 @@ export function buildInstallmentPaidMail({
       <p>
         Regards,<br/>
         <b>Srinivas Dande</b><br/>
-        Founder & Instructor<br/>
+        Founder & Lead Trainer<br/>
         Dandes Academy
       </p>
     `,
@@ -505,39 +505,28 @@ export async function sendLeadConfirmationEmail({ name, email }) {
     await transporter.sendMail({
       from: '"Dandes Academy" <hello@dandesacademy.com>',
       to: email,
-      subject: "Webinar Registration Confirmed – See You Live | Dandes Academy",
+      subject: "Thank You for Your Interest in Our AI & Machine Learning Program | Dandes Academy",
       html: `
         <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
-          <h2 style="color:#111;">Hello ${name || "there"},</h2>
+          <h2 style="color:#111;">Hi ${name || "there"},</h2>
 
-          <p>Thank you for registering for our upcoming webinar:</p>
+          <p>Thank you for your interest in our <b>AI & Machine Learning Program.</b></p>
 
-          <h3 style="margin-bottom: 10px; color: #000;">
-            AI Career Switch Blueprint – How Software Engineers Are Transitioning to AI/ML Roles
-          </h3>
+          <p>We're glad you reached out.</p>
 
-          <p><strong>📅 Date: 28th May 2026 (Thursday)</strong></p>
-          <p><strong>⏰ Time: 8:00 PM IST</strong></p>
-          <p><strong>📍 Mode: Live Online Session</strong></p>
-
-          <p>You will receive the joining link before the session starts.</p>
-
-          <p><strong>In this webinar, you will learn:</strong></p>
+          <p><strong>Here's what happens next:</strong></p>
 
           <ul style="padding-left: 20px;">
-            <li>Why many software engineers are moving into AI roles</li>
-            <li>How your existing software engineering experience becomes an advantage</li>
-            <li>The skills you should focus on (and what to skip)</li>
-            <li>A clear roadmap to transition into AI/ML roles</li>
+            <li>One of our counsellors will contact you shortly</li>
+            <li>We'll understand your goals and answer your questions</li>
+            <li>We'll share details about the curriculum, fees, and upcoming batches</li>
           </ul>
 
-          <p>Looking forward to seeing you live!</p>
+          <p>We look forward to speaking with you.</p>
 
           <p>
             Regards,<br/>
-            <strong>Srinivas Dande</strong><br/>
-            Founder & Lead Trainer<br/>
-            Dandes Academy
+            <strong>Dandes Academy</strong>
           </p>
         </div>
       `,
@@ -564,13 +553,13 @@ export async function sendSalesLeadEmail({ fullName, email, phone }) {
         "chaitanya@dandesacademy.com",
         "swetha@dandesacademy.com"
       ],
-      subject: `${todayDate} - ${fullName || "Unknown"} - AI/ML Webinar Registration`,
+      subject: `${todayDate} - ${fullName || "Unknown"} - AI/ML Demo Registration`,
       html: `
         <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
           
           <h2 style="color:#111;">New Lead Received</h2>
 
-          <p>A new user has registered for the AI/ML webinar.</p>
+          <p>A new user has registered for the AI/ML Demo.</p>
 
           <h3 style="margin-bottom: 10px; color: #000;">
             Lead Details

@@ -38,13 +38,13 @@ export default function WebinarForm({
     setSuccess(false);
 
     try {
-      const res = await fetch("/da-api/webinars", {
+      const res = await fetch("/api/batch3-leads", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          webinarId,
+          //webinarId,
           fullName: form.full_Name,
           email: form.email,
           phone: form.countryCode + form.phone,
@@ -60,7 +60,7 @@ export default function WebinarForm({
       setSuccess(true);
 
       if (onSuccess) {
-        onSuccess(); // used to increase registered count
+        onSuccess(); 
       }
 
       setForm({

@@ -56,7 +56,7 @@ export default function WhyDandesAcademy() {
               }
               className="inline-flex items-center rounded-lg bg-[#AD1612] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#92100E] transition shadow"
             >
-              Register for Free Webinar
+              Register for More details
             </button>
           </div>
 

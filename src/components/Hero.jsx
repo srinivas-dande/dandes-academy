@@ -5,8 +5,15 @@ import LeadForm from "./LeadForm";
 
 export default function Hero() {
   const [webinar, setWebinar] = useState(null);
-  const [timeLeft, setTimeLeft] = useState(null);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    mins: 0,
+    secs: 0,
+  });
   const [isFallback, setIsFallback] = useState(false);
+    const [webinarTime, setWebinarTime] = useState(null)
+
 
   // ✅ Fetch latest running webinar
   useEffect(() => {
@@ -16,65 +23,64 @@ export default function Hero() {
         const data = await res.json();
 
         if (data.ok && data.data?.length > 0) {
-          setWebinar(data.data[0]);
+          const webinarData = data.data[0];
+
+          setWebinar(webinarData);
+          setWebinarTime(new Date(webinarData.dateTime));
           setIsFallback(false);
         } else {
           console.warn("No running webinar found, using fallback timer");
+
+          const fallbackDate = new Date();
+          fallbackDate.setDate(fallbackDate.getDate() + 3);
+
           setWebinar(null);
+          setWebinarTime(fallbackDate);
           setIsFallback(true);
         }
       } catch (err) {
         console.error("Error fetching webinar:", err);
-        setWebinar(null);
-        setIsFallback(true);
+
+  const fallbackDate = new Date();
+  fallbackDate.setDate(fallbackDate.getDate() + 3);
+
+  setWebinar(null);
+  setWebinarTime(fallbackDate);
+  setIsFallback(true);
       }
     }
 
     fetchWebinar();
   }, []);
 
+  
+
   // ✅ Countdown logic
   useEffect(() => {
-    let interval;
+    if (!webinarTime) return
 
-    function startFallbackTimer() {
-      console.log("Switching to fallback 24-hour timer...");
-      let diff = 24 * 60 * 60 * 1000; // 24 hours
-      setIsFallback(true);
-      setTimeLeft(diff);
-      interval = setInterval(() => {
-        diff = Math.max(0, diff - 1000);
-        setTimeLeft(diff);
-      }, 1000);
-    }
+    const timer = setInterval(() => {
+      const now = new Date()
+      const difference = webinarTime - now
 
-    if (webinar && webinar.dateTime) {
-      const target = new Date(webinar.dateTime).getTime();
-      interval = setInterval(() => {
-        const now = Date.now();
-        const diff = target - now;
+      if (difference <= 0) {
+        clearInterval(timer)
+        setTimeLeft({ days: 0, hours: 0, mins: 0, secs: 0 })
+        return
+      }
 
-        if (diff <= 0) {
-          // ✅ Webinar time finished → start fallback timer
-          clearInterval(interval);
-          startFallbackTimer();
-        } else {
-          setTimeLeft(diff);
-        }
-      }, 1000);
-    } else {
-      // ✅ No active webinar → start fallback immediately
-      startFallbackTimer();
-    }
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24)
+      const mins = Math.floor((difference / (1000 * 60)) % 60)
+      const secs = Math.floor((difference / 1000) % 60)
 
-    return () => clearInterval(interval);
-  }, [webinar]);
+      setTimeLeft({ days, hours, mins, secs })
+    }, 1000)
 
-  // ✅ Calculate time parts
-  const days = timeLeft ? Math.floor(timeLeft / (1000 * 60 * 60 * 24)) : 0;
-  const hours = timeLeft ? Math.floor((timeLeft / (1000 * 60 * 60)) % 24) : 0;
-  const minutes = timeLeft ? Math.floor((timeLeft / (1000 * 60)) % 60) : 0;
-  const seconds = timeLeft ? Math.floor((timeLeft / 1000) % 60) : 0;
+    return () => clearInterval(timer)
+  }, [webinarTime])
+
+
 
   return (
     <section className="relative overflow-hidden bg-[#F8FAFC]">
@@ -106,34 +112,39 @@ export default function Hero() {
             </ul>
 
             {/* ✅ Countdown Section */}
-            <div className="mt-10 text-center">
-              <p className="text-lg font-semibold text-gray-700 mb-3 tracking-wide">
-                {isFallback
-                  ? "NEXT WEBINAR STARTS IN"
-                  : webinar?.dateTime
-                  ? `NEXT WEBINAR: ${formatDateTime(webinar.dateTime)}`
-                  : "NEXT WEBINAR STARTS IN"}
-              </p>
+            <div className="mt-8">
+              <h3 className="text-lg font-bold text-black mb-4">
+                NEW BATCH DEMO STARTS IN
+              </h3>
 
-              <div className="inline-flex items-stretch justify-center gap-4">
-                {[
-                  { label: "DAYS", value: String(days).padStart(2, "0") },
-                  { label: "HRS", value: String(hours).padStart(2, "0") },
-                  { label: "MINS", value: String(minutes).padStart(2, "0") },
-                  { label: "SEC", value: String(seconds).padStart(2, "0") },
-                ].map((b) => (
-                  <div
-                    key={b.label}
-                    className="w-20 sm:w-24 rounded-xl bg-white shadow-sm py-3"
-                  >
-                    <p className="text-3xl sm:text-4xl font-extrabold text-[#AD1612] leading-none">
-                      {b.value}
-                    </p>
-                    <p className="text-[10px] sm:text-xs text-gray-500 mt-1 tracking-wider">
-                      {b.label}
-                    </p>
-                  </div>
-                ))}
+              <div className="flex gap-4 mt-2">
+                <div className="text-center bg-white rounded-md px-4 py-2 shadow-sm">
+                  <p className="text-3xl font-bold text-red-600">
+                    {String(timeLeft.days).padStart(2, "0")}
+                  </p>
+                  <p className="text-xs text-gray-700 uppercase tracking-wide">Days</p>
+                </div>
+
+                <div className="text-center bg-white rounded-md px-4 py-2 shadow-sm">
+                  <p className="text-3xl font-bold text-red-600">
+                    {String(timeLeft.hours).padStart(2, "0")}
+                  </p>
+                  <p className="text-xs text-gray-700 uppercase tracking-wide">Hrs</p>
+                </div>
+
+                <div className="text-center bg-white rounded-md px-4 py-2 shadow-sm">
+                  <p className="text-3xl font-bold text-red-600">
+                    {String(timeLeft.mins).padStart(2, "0")}
+                  </p>
+                  <p className="text-xs text-gray-700 uppercase tracking-wide">Mins</p>
+                </div>
+
+                <div className="text-center bg-white rounded-md px-4 py-2 shadow-sm">
+                  <p className="text-3xl font-bold text-red-600">
+                    {String(timeLeft.secs).padStart(2, "0")}
+                  </p>
+                  <p className="text-xs text-gray-700 uppercase tracking-wide">Sec</p>
+                </div>
               </div>
             </div>
           </div>
@@ -142,19 +153,18 @@ export default function Hero() {
           <div id="lead-form" className="lg:col-span-6">
             <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-10">
             <h2 id="free-ai-ml-webinar" className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-              Free AI & Machine Learning Webinar
+              Get course fee, syllabus, and next batch details
             </h2>
   <p className="text-sm text-gray-700 mb-4">
-      Free AI/ML webinar for Professionals and Job Seekers to learn career roadmap, 
-      and how to start AI & Machine Learning with industry-focused training.
+      Fill this once, and we will share course details on WhatsApp, email, or call you back.
     </p>
               <p className="text-sm text-gray-600 mb-6">
-                Join the live session on{" "}
+                Join the New Batch Demo on {" "}
                 <span className="text-gray-900 font-semibold">
                   {webinar?.dateTime ? formatDateTime(webinar.dateTime) : "upcoming date"}.
                 </span>
               </p>
-              <LeadForm submitLabel="Register for Free AI/ML Webinar" />
+              <LeadForm submitLabel="Register for More details" />
             </div>
           </div>
         </div>

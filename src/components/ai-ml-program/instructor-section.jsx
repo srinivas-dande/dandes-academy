@@ -51,18 +51,18 @@ export function InstructorSection() {
         {/* Right - Content */}
         <div style={{ maxWidth: 580, paddingLeft: 0 }}>
           {/* Mobile instructor image - shown only on mobile */}
-          <div className="mobile-instructor-image">
-            <img
-              src="/images/instructor.png"
-              alt="Srinivas Dande"
-              style={{
-                width: '100%',
-                maxWidth: 420,
-                height: 'auto',
-                display: 'block',
-                margin: '0 auto',
-              }}
-            />
+            <div className="mobile-instructor-image">
+              <img
+                src="/images/instructor-mobile.png"
+                alt="Srinivas Dande"
+                style={{
+                  width: '100%',
+                  maxWidth: 420,
+                  height: 'auto',
+                  display: 'block',
+                  margin: '0 auto',
+                }}
+              />
           </div>
 
             {/* Badge */}

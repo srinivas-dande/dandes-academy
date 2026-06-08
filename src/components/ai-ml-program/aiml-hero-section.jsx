@@ -5,11 +5,11 @@ import { AimlRegistrationForm } from "./aiml-registration-form"
 
 const features = [
   
-  "Live Online Classes + LMS Access + Doubt Support",
-  "Assignments, Mini Projects & End-to-End Capstone Project",
-  "Machine Learning, Deep Learning, NLP, GenAI/LLMs, Agentic AI & MLOps",
+  "Live Online Classes + LMS Access",
+  "Mini Projects & End-to-End Capstone",
+  "ML, DL, NLP, GenAI/LLMs, Agentic AI & MLOps",
   "Resume Review, Mock Interviews & Career Guidance",
-  "25,000+ Students Trained | 20+ Years of Industry Experience",
+  "25,000+ Students Trained | 20+ Years of Experience",
 ]
 
 export function AimlHeroSection() {
@@ -49,11 +49,10 @@ export function AimlHeroSection() {
         />
       </div>
 
-      <div className="max-w-[1300px] 
-      mx-auto px-4 lg:px-[70px] py-12 lg:py-16 relative z-10 min-h-[609px]">
+      <div className="max-w-[1300px] mx-auto px-4 lg:px-[70px] py-12 lg:py-16 relative z-10 min-h-[609px]">
         <div className="flex flex-col lg:flex-row justify-between items-start h-full">
           {/* Left Content */}
-          <div className="flex-1 max-w-[600px]">
+          <div className="flex-1 max-w-[600px] w-full">
             <h1
   className="font-bold leading-tight mb-6"
   style={{ color: "#000000" }}
@@ -63,11 +62,10 @@ export function AimlHeroSection() {
   </span>
 
   <span
-    className="block whitespace-nowrap font-bold"
-    style={{ fontSize: "2.7rem" }}
-  >
-    HIGH-PAYING AI/ML ROLES
-  </span>
+  className="block font-bold text-[2rem] sm:text-[2.3rem] lg:text-[2.7rem] leading-tight"
+>
+  HIGH-PAYING AI/ML ROLES
+</span>
 </h1>
 
             <p className="text-gray-600 text-base lg:text-lg leading-relaxed mb-8 max-w-xl">
@@ -88,7 +86,7 @@ export function AimlHeroSection() {
     opacity: 1,
   }}
 />
-                  <span className="text-gray-700">{feature}</span>
+                  <span className="text-gray-700 text-sm sm:text-base break-words">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -121,7 +119,7 @@ export function AimlHeroSection() {
           </div>
 
           {/* Right Form */}
-          <div className="w-full lg:w-auto lg:shrink-0 lg:ml-8">
+          <div className="w-full mt-6 lg:mt-0 lg:w-auto lg:shrink-0 lg:ml-8">
             <AimlRegistrationForm />
           </div>
 

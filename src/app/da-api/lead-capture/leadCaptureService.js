@@ -1,8 +1,5 @@
 import prisma from "@/lib/prisma";
-import {
-  sendLeadEmails,
-  sendLeadResubmittedEmails,
-} from "@/lib/mail/sendLeadEmails";
+import {sendLeadEmails, sendLeadResubmittedEmails, } from "@/lib/mail/sendLeadEmails";
 
 /* ----------------------------------------------------------
    UTM SOURCE → DB NAME MAPPING
@@ -110,7 +107,6 @@ export async function handleAddLeadCapture(payload = {}) {
         leadStatus: "New",
       },
     });
-
 
     sendLeadEmails({
       fullName: formattedName,

@@ -50,32 +50,37 @@ export async function sendLeadEmails({
     const studentMail = {
       from: '"Dandes Academy" <hello@dandesacademy.com>',
       to: email,
-      subject: `Hello ${fullName} - Thank You for Registering | Dandes Academy`,
+      subject: "Your AI/ML Course Brochure – Dandes Academy",
       html: `
-        <p>Hello ${fullName},</p>
-        <p>
-          Thank you for showing interest in <b>Dandes Academy</b> and submitting your details.
-          <br/>We have successfully received your information.
-        </p>
-        <p>Our team will review your details and get in touch with you shortly.</p>
-        <p>Looking forward to connecting with you soon.</p>
-        <br/>
+        <h2>Hello ${fullName}</h2>
+
+        <p>Thank you for your interest in our AI & Machine Learning program.</p>
+
+        <p>Inside the brochure you will find:</p>
+
+        <ul>
+          <li>Complete AI/ML course curriculum</li>
+          <li>16 detailed modules</li>
+          <li>Projects and learning roadmap</li>
+        </ul>
+
+
         <p>
           Regards,<br/>
-          <b>Srinivas Dande</b><br/>
-          Founder & Instructor<br/>
+          <strong>Srinivas Dande</strong><br/>
+          Founder & Lead Trainer<br/>
           Dandes Academy
         </p>
-      `,
+      `
     };
 
     const teamMail = {
       from: '"Dandes Academy" <hello@dandesacademy.com>',
       to: salesEmails,
-      subject: `New Lead Received – ${fullName} | ${course || "Course Not Specified"}`,
+      subject: `New DA-Network Lead - ${fullName} - AI/ML Brochure Download`,
       html: `
         <p>Hello Team,</p>
-        <p>New lead has been submitted on the <b>Dandes Academy</b> website.</p>
+        <p>New DA-Network Lead has been submitted on the <b>Dandes Academy</b> website.</p>
 
         <ul>
           <li><b>Name:</b> ${fullName}</li>

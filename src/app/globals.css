@@ -50,3 +50,9 @@ body {
   -moz-appearance: textfield;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+

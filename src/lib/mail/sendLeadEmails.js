@@ -553,13 +553,13 @@ export async function sendSalesLeadEmail({ fullName, email, phone }) {
         "chaitanya@dandesacademy.com",
         "swetha@dandesacademy.com"
       ],
-      subject: `${todayDate} - ${fullName || "Unknown"} - AI/ML Demo Registration`,
+      subject: `${todayDate} - ${fullName || "Unknown"} - Registered For AI & Machine Learning Program`,
       html: `
         <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
           
-          <h2 style="color:#111;">New Lead Received</h2>
+          <h2 style="color:#111;">New Lead From DA-Network Received</h2>
 
-          <p>A new user has registered for the AI/ML Demo.</p>
+          <p>A new lead has registered for the AI & Machine Learning Program</p>
 
           <h3 style="margin-bottom: 10px; color: #000;">
             Lead Details
@@ -571,13 +571,9 @@ export async function sendSalesLeadEmail({ fullName, email, phone }) {
 
           <hr style="margin:20px 0;" />
 
-          <p style="font-size:12px; color:#888;">
-            Source: AI/ML Webinar Page
-          </p>
-
           <p>
             Regards,<br/>
-            <strong>Dandes Academy System</strong>
+            <strong>Dandes Academy</strong>
           </p>
         </div>
       `,

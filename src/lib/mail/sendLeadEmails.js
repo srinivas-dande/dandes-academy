@@ -544,7 +544,7 @@ export async function sendLeadConfirmationEmail({ name, email }) {
   }
 }
 
-export async function sendSalesLeadEmail({ fullName, email, phone }) {
+export async function sendSalesLeadEmail({ fullName, email, phone, form_type, }) {
   try {
     const todayDate = new Date().toLocaleDateString("en-GB", {
       day: "numeric",
@@ -558,7 +558,7 @@ export async function sendSalesLeadEmail({ fullName, email, phone }) {
         "chaitanya@dandesacademy.com",
         "swetha@dandesacademy.com"
       ],
-      subject: `${todayDate} - ${fullName || "Unknown"} - ${formType || "Unknown Source"} Lead`,
+      subject: `${todayDate} - ${fullName || "Unknown"} - ${form_type || "Unknown Source"} Lead`,
       html: `
         <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
           

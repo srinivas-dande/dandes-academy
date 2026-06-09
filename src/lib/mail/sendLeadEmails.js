@@ -558,7 +558,7 @@ export async function sendSalesLeadEmail({ fullName, email, phone }) {
         "chaitanya@dandesacademy.com",
         "swetha@dandesacademy.com"
       ],
-      subject: `${todayDate} - ${fullName || "Unknown"} - Registered For AI & Machine Learning Program`,
+      subject: `${todayDate} - ${fullName || "Unknown"} - ${formType || "Unknown Source"} Lead`,
       html: `
         <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
           

@@ -27,6 +27,7 @@ export async function POST(req) {
           fullName: body.fullName,
           email: body.email,
           phone: body.phone,
+          form_type: "Demo Registration",
         }),
       ]);
     } catch (emailError) {

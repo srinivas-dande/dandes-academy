@@ -573,7 +573,7 @@ export async function sendSalesLeadEmail({ fullName, email, phone, form_type, ut
           <p><strong>Name:</strong> ${fullName || "-"}</p>
           <p><strong>Email:</strong> ${email || "-"}</p>
           <p><strong>Phone:</strong> ${phone || "-"}</p>
-          <p><strong>Phone:</strong> ${utmSource || "-"}</p>
+          <p><strong>Source:</strong> ${utmSource || "-"}</p>
 
           <hr style="margin:20px 0;" />
 

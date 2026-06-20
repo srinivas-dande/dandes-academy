@@ -1,24 +1,6 @@
 export default function DemoVideos() {
   const videos = [
-    // 🔹 Pandas Assignment
-    {
-      id: 'pandas-assign-1',
-      title: 'Pandas Assignment - Part 1',
-      url: 'https://www.youtube.com/embed/8pgAsGkL7mI',
-      duration: '01:41:58',
-    },
-    {
-      id: 'pandas-assign-2',
-      title: 'Pandas Assignment - Part 2',
-      url: 'https://www.youtube.com/embed/gCcGDktBST0',
-      duration: '01:00:36',
-    },
-    {
-      id: 'pandas-assign-3',
-      title: 'Pandas Assignment - Part 3',
-      url: 'https://www.youtube.com/embed/G4Ww5lQUMWI',
-      duration: '01:19:50',
-    },
+    
 
     // 🔹 Pandas Fundamentals
     {

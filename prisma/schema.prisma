@@ -304,6 +304,7 @@ model Batch3_Leads {
   form_type  String?  @db.VarChar(100)
   leadSource String   @default("DA Network") @db.VarChar(100)
   leadStatus String   @default("New") @db.VarChar(50)
+  utmSource   String?  @db.VarChar(100)
   createdAt  DateTime @default(now()) @db.Timestamp(6)
 
   @@map("Batch3_Leads")

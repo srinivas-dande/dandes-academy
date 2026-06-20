@@ -544,7 +544,7 @@ export async function sendLeadConfirmationEmail({ name, email }) {
   }
 }
 
-export async function sendSalesLeadEmail({ fullName, email, phone, form_type, }) {
+export async function sendSalesLeadEmail({ fullName, email, phone, form_type, utmSource, }) {
   try {
     const todayDate = new Date().toLocaleDateString("en-GB", {
       day: "numeric",
@@ -573,6 +573,7 @@ export async function sendSalesLeadEmail({ fullName, email, phone, form_type, })
           <p><strong>Name:</strong> ${fullName || "-"}</p>
           <p><strong>Email:</strong> ${email || "-"}</p>
           <p><strong>Phone:</strong> ${phone || "-"}</p>
+          <p><strong>Phone:</strong> ${utmSource || "-"}</p>
 
           <hr style="margin:20px 0;" />
 

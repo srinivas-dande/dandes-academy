@@ -11,8 +11,10 @@ const features = [
   "Resume Review, Mock Interviews & Career Guidance",
   "25,000+ Students Trained | 20+ Years of Experience",
 ]
-
+ 
 export function AimlHeroSection() {
+
+  
 
   const scrollToCourses = () => {
     const courseSection = document.getElementById("courses")

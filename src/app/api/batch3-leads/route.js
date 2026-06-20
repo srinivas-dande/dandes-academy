@@ -12,6 +12,8 @@ export async function POST(req) {
         emailId: body.email,
         phone: body.phone,
         form_type: "Demo Registration",
+        utmSource: body.utmSource,
+        
         
       },
     });
@@ -28,6 +30,8 @@ export async function POST(req) {
           email: body.email,
           phone: body.phone,
           form_type: "Demo Registration",
+          utmSource: body.utmSource,
+          
         }),
       ]);
     } catch (emailError) {

@@ -12,10 +12,11 @@ export async function POST(req) {
         emailId: body.email,
         phone: body.phone,
         form_type: "Marketing Automation",
+        utmSource: body.utmSource,
         
       },
     });
-  
+   
     try {
       await Promise.all([
         sendLeadConfirmationEmail({
@@ -28,6 +29,7 @@ export async function POST(req) {
           email: body.email,
           phone: body.phone,
           form_type: "Marketing Automation",
+          utmSource: body.utmSource,
         }),
       ]);
     } catch (emailError) {

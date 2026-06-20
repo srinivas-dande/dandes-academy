@@ -1,6 +1,5 @@
 "use client"
-
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ArrowRight } from "lucide-react"
 import { isValidPhoneNumber } from "libphonenumber-js"
 
@@ -28,15 +27,29 @@ const countries = [
 ]
 
 export function AimlRegistrationForm() {
+
+
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
+    utmSource: "",
   })
   const [successMsg, setSuccessMsg] = useState("")
   const [phoneError, setPhoneError] = useState("")
   const [loading, setLoading] = useState(false)
   const [countryCode, setCountryCode] = useState("+91")
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    setFormData((prev) => ({
+      ...prev,
+      utmSource: params.get("utm_source") || "",
+    }));
+  }, []);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -62,8 +75,8 @@ export function AimlRegistrationForm() {
     const payload = {
       fullName: formData.fullName,
       email: formData.email,
-      
       phone: `${countryCode}${formData.phone}`,
+      utmSource: formData.utmSource,
     }
 
     try {
@@ -77,7 +90,12 @@ export function AimlRegistrationForm() {
 
       if (data.success) {
         setSuccessMsg("You are registered successfully!")
-        setFormData({ fullName: "", email: "", phone: "" })
+        setFormData((prev) => ({
+          ...prev,
+          fullName: "",
+          email: "",
+          phone: "",
+        }));
         
       } else {
         alert(data.message || "Something went wrong")

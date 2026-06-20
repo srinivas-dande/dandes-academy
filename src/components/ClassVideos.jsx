@@ -107,12 +107,7 @@ export default function DemoVideos() {
     <section className="bg-[#F8FAFC] py-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
 
-        <SectionHeading
-          highlight="Pandas Assignment"
-          title="- Videos"
-          subtitle="Understand Pandas concepts through hands-on assignments explained in detail."
-        />
-        <VideoRow videos={videos.slice(0, 3)} />
+        
 
         <div className="mt-20" />
 

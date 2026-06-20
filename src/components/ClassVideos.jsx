@@ -116,7 +116,7 @@ export default function DemoVideos() {
           title="- Videos"
           subtitle="Learn core Pandas concepts step by step with clear explanations."
         />
-        <VideoRow videos={videos.slice(3, 6)} />
+        <VideoRow videos={videos.slice(0, 3)} />
 
         <div className="mt-20" />
 
@@ -125,7 +125,7 @@ export default function DemoVideos() {
           title="- Videos"
           subtitle="Master Python functions through practical examples."
         />
-        <VideoRow videos={videos.slice(6, 9)} />
+        <VideoRow videos={videos.slice(3, 6)} />
 
         <div className="mt-20" />
 
@@ -134,7 +134,7 @@ export default function DemoVideos() {
           title="- Videos"
           subtitle="Understand Python lists step by step with clear explanations."
         />
-        <VideoRow videos={videos.slice(9, 12)} />
+        <VideoRow videos={videos.slice(6, 9)} />
 
         <div className="mt-20" />
 
@@ -143,7 +143,7 @@ export default function DemoVideos() {
           title="- Videos"
           subtitle="Learn core system design principles like CAP, PACELC, and consistency models."
         />
-        <VideoRow videos={videos.slice(12, 15)} />
+        <VideoRow videos={videos.slice(9, 12)} />
 
         <div className="mt-20" />
 
@@ -152,7 +152,7 @@ export default function DemoVideos() {
           title="- Videos"
           subtitle="Understand self-balancing BSTs including AVL trees and Red-Black trees."
         />
-        <VideoRow videos={videos.slice(15, 18)} />
+        <VideoRow videos={videos.slice(12, 15)} />
 
       </div>
     </section>

@@ -556,7 +556,8 @@ export async function sendSalesLeadEmail({ fullName, email, phone, form_type, ut
       from: '"Dandes Academy" <hello@dandesacademy.com>',
       to: [
         "chaitanya@dandesacademy.com",
-        "swetha@dandesacademy.com"
+        "swetha@dandesacademy.com",
+        "pranav@dandesacademy.com"
       ],
       subject: `${todayDate} - ${fullName || "Unknown"} - ${form_type || "Unknown Source"} Lead`,
       html: `

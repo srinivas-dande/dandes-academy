@@ -32,7 +32,10 @@ export function AimlRegistrationForm() {
     fullName: "",
     email: "",
     phone: "",
-    utmSource: "",
+
+    lead_status: "New Lead",
+    lead_source: "",
+    lead_sub_source: "",
   })
   const [successMsg, setSuccessMsg] = useState("")
   const [phoneError, setPhoneError] = useState("")
@@ -44,7 +47,9 @@ export function AimlRegistrationForm() {
 
     setFormData((prev) => ({
       ...prev,
-      utmSource: params.get("utm_source") || "",
+      lead_status: params.get("lead_status") || "New Lead",
+      lead_source: params.get("lead_source") || "DA Network",
+      lead_sub_source: params.get("lead_sub_source") || "",
     }));
   }, []);
 
@@ -73,7 +78,9 @@ export function AimlRegistrationForm() {
       fullName: formData.fullName,
       email: formData.email,
       phone: `${countryCode}${formData.phone}`,
-      utmSource: formData.utmSource,
+      lead_status: formData.lead_status,
+      lead_source: formData.lead_source,
+      lead_sub_source: formData.lead_sub_source,
     }
 
     try {

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import { ArrowRight } from "lucide-react"
 import { isValidPhoneNumber } from "libphonenumber-js"
-
+ 
 const countries = [
   { code: "IN", dial: "+91" },   // India
   { code: "US", dial: "+1" },    // United States
@@ -34,19 +34,24 @@ export function AimlRegistrationForm() {
     fullName: "",
     email: "",
     phone: "",
-    utmSource: "",
-  })
+
+    lead_status: "New Lead",
+    lead_source: "",
+    lead_sub_source: "",
+  }) 
   const [successMsg, setSuccessMsg] = useState("")
   const [phoneError, setPhoneError] = useState("")
   const [loading, setLoading] = useState(false)
   const [countryCode, setCountryCode] = useState("+91")
-
+ 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
 
     setFormData((prev) => ({
-      ...prev,
-      utmSource: params.get("utm_source") || "",
+      ...prev, 
+      lead_status: params.get("lead_status") || "New Lead",
+      lead_source: params.get("lead_source") || "DA Network",
+      lead_sub_source: params.get("lead_sub_source") || "",
     }));
   }, []);
 
@@ -70,13 +75,16 @@ export function AimlRegistrationForm() {
     setPhoneError("")
 
     setLoading(true)
-
-
+ 
+  
     const payload = {
       fullName: formData.fullName,
       email: formData.email,
       phone: `${countryCode}${formData.phone}`,
-      utmSource: formData.utmSource,
+      lead_status: formData.lead_status,
+      lead_source: formData.lead_source,
+      lead_sub_source: formData.lead_sub_source,
+
     }
 
     try {

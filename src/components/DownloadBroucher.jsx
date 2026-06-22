@@ -27,7 +27,9 @@ export default function LeadCaptureForm({
     phone: '',
     countryCode: '+91',
     course_Interested: 'AI/ML Course',
-    lead_source: 'Brochure',
+    lead_source: "",
+    lead_sub_source: "",
+    lead_status: "New Lead",
     lead_ad_source: 'Direct',
     Remarks: '',
   });
@@ -44,7 +46,10 @@ export default function LeadCaptureForm({
     if (utmSource) {
       setForm((f) => ({
         ...f,
-        lead_ad_source: utmSource.toLowerCase(),
+        lead_ad_source: params.get("utm_source") || "Direct",
+        lead_source: params.get("lead_source") || "",
+        lead_sub_source: params.get("lead_sub_source") || "",
+        lead_status: params.get("lead_status") || "New Lead",
       }));
     }
   }, []);
@@ -71,11 +76,15 @@ export default function LeadCaptureForm({
           email: form.email.trim(),
           phone: form.phone
             ? `${form.countryCode} ${form.phone.trim()}`
-            : '',
+            : "",
+
           course_Interested: form.course_Interested,
           lead_source: form.lead_source,
+          lead_sub_source: form.lead_sub_source,
+          lead_status: form.lead_status,
+
           lead_ad_source: form.lead_ad_source,
-          Remarks: form.Remarks || 'NA',
+          Remarks: form.Remarks || "NA",
         }),
       });
 
@@ -98,16 +107,15 @@ export default function LeadCaptureForm({
         setError(data.error);
       }
 
-      setForm({
-        full_Name: '',
-        email: '',
-        phone: '',
-        countryCode: '+91',
-        course_Interested: 'AI/ML Course',
-        lead_source: 'Website',
-        lead_ad_source: 'Direct',
-        Remarks: '',
-      });
+      setForm((prev) => ({
+        ...prev,
+        full_Name: "",
+        email: "",
+        phone: "",
+        countryCode: "+91",
+        course_Interested: "AI/ML Course",
+        Remarks: "",
+      }));
 
       setTimeout(() => setSuccess(false), 5000);
     } catch (err) {

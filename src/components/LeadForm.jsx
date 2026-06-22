@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function WebinarForm({
   
@@ -9,17 +9,32 @@ export default function WebinarForm({
   isExpired = false,
   onSuccess,
 }) {
-   const webinarId = "WB-28th-May-26";
+  const webinarId = "WB-28th-May-26";
   const [form, setForm] = useState({
     full_Name: "",
     email: "",
     phone: "",
     countryCode: "+91",
+
+    lead_status: "New Lead",
+    lead_source: "",
+    lead_sub_source: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+  const params = new URLSearchParams(window.location.search);
+
+  setForm((prev) => ({
+    ...prev,
+    lead_status: params.get("lead_status") || "New Lead",
+    lead_source: params.get("lead_source") || "",
+    lead_sub_source: params.get("lead_sub_source") || "",
+  }));
+}, []);
   
   
 
@@ -48,6 +63,9 @@ export default function WebinarForm({
           fullName: form.full_Name,
           email: form.email,
           phone: form.countryCode + form.phone,
+          lead_status: form.lead_status,
+          lead_source: form.lead_source,
+          lead_sub_source: form.lead_sub_source,
         }),
       });
 
@@ -62,13 +80,14 @@ export default function WebinarForm({
       if (onSuccess) {
         onSuccess(); 
       }
-
-      setForm({
+ 
+      setForm((prev) => ({
+        ...prev,
         full_Name: "",
         email: "",
         phone: "",
         countryCode: "+91",
-      });
+      }));
     } catch (err) {
       setError(err.message);
     } finally {

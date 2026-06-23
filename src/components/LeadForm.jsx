@@ -31,7 +31,7 @@ export default function WebinarForm({
   setForm((prev) => ({
     ...prev,
     lead_status: params.get("lead_status") || "New Lead",
-    lead_source: params.get("lead_source") || "",
+    lead_source: params.get("lead_source") || "DA Network",
     lead_sub_source: params.get("lead_sub_source") || "",
   }));
 }, []);

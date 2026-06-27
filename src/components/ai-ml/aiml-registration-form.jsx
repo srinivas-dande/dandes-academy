@@ -29,7 +29,6 @@ const countries = [
 export function AimlRegistrationForm() {
 
 
-
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",

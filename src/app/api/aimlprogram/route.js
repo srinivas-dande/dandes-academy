@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
-import { sendLeadConfirmationEmail, sendSalesLeadEmail, } from "@/lib/mail/sendLeadEmails";
+import { sendSalesLeadEmail } from "@/lib/mail/sendLeadEmails";
 
 export async function POST(req) {
   try {
@@ -60,10 +60,6 @@ export async function POST(req) {
    
     try {
       await Promise.all([
-        sendLeadConfirmationEmail({
-          name: body.fullName,
-          email: body.email,
-        }),
 
         sendSalesLeadEmail({
           fullName: body.fullName,

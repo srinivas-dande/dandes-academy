@@ -505,44 +505,7 @@ export function buildInstallmentPaidMail({
 }
 
 
-export async function sendLeadConfirmationEmail({ name, email }) {
-  try {
-    await transporter.sendMail({
-      from: '"Dandes Academy" <hello@dandesacademy.com>',
-      to: email,
-      subject: "Thank You for Your Interest in Our AI & Machine Learning Program | Dandes Academy",
-      html: `
-        <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
-          <h2 style="color:#111;">Hi ${name || "there"},</h2>
-
-          <p>Thank you for your interest in our <b>AI & Machine Learning Program.</b></p>
-
-          <p>We're glad you reached out.</p>
-
-          <p><strong>Here's what happens next:</strong></p>
-
-          <ul style="padding-left: 20px;">
-            <li>One of our counsellors will contact you shortly</li>
-            <li>We'll understand your goals and answer your questions</li>
-            <li>We'll share details about the curriculum, fees, and upcoming batches</li>
-          </ul>
-
-          <p>We look forward to speaking with you.</p>
-
-          <p>
-            Regards,<br/>
-            <strong>Dandes Academy</strong>
-          </p>
-        </div>
-      `,
-    });
-
-    console.log("Lead confirmation email sent");
-  } catch (error) {
-    console.error("Error sending lead confirmation email:", error);
-    throw error;
-  }
-}
+ 
 
 export async function sendSalesLeadEmail({ fullName, email, phone, form_type, utmSource, }) {
   try {

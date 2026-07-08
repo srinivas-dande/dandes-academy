@@ -56,19 +56,19 @@ export function AimlHeroSection() {
           {/* Left Content */}
           <div className="flex-1 max-w-[600px] w-full">
             <h1
-  className="font-bold leading-tight mb-6"
-  style={{ color: "#000000" }}
->
-  <span className=" text #d12027 block text-3xl sm:text-4xl lg:text-5xl " style={{ color:"#AD1612" }}>
-    SWITCH TO
-  </span>
+              className="font-bold leading-tight mb-6"
+              style={{ color: "#000000" }}
+            >
+              <span className=" text #d12027 block text-3xl sm:text-4xl lg:text-5xl " style={{ color:"#AD1612" }}>
+                SWITCH TO
+              </span>
 
-  <span
-  className="block font-bold text-[2rem] sm:text-[2.3rem] lg:text-[2.7rem] leading-tight"
->
-  HIGH-PAYING AI/ML ROLES
-</span>
-</h1>
+              <span
+                className="block font-bold text-[2rem] sm:text-[2.3rem] lg:text-[2.7rem] leading-tight"
+              >
+                HIGH-PAYING AI/ML ROLES
+              </span>
+            </h1>
 
             <p className="text-gray-600 text-base lg:text-lg leading-relaxed mb-8 max-w-xl">
               A mentor-led AI/ML Career Program designed for working professionals and Job Seekers who want to transition into Artificial Intelligence and Machine Learning.

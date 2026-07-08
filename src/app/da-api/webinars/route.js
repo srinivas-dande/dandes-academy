@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { registerWebinar, getWebinarCount} from "./webinarservice";
-import { sendLeadConfirmationEmail, sendSalesLeadEmail } from "@/lib/mail/sendLeadEmails";
+import { sendSalesLeadEmail } from "@/lib/mail/sendLeadEmails";
 
 export async function POST(req) {
   try {
@@ -9,13 +9,6 @@ export async function POST(req) {
     const result = await registerWebinar(body);
 
     await Promise.all([
-      // ✅ Student email
-      body?.fullName && body?.email
-        ? sendLeadConfirmationEmail({
-            name: body.fullName,
-            email: body.email,
-          })
-        : null,
 
       // ✅ Sales team email
       sendSalesLeadEmail({
